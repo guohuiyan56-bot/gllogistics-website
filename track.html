@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>货物查询 / Cargo Tracking — GREENLINE Logistics</title>
+<link rel="icon" type="image/png" href="https://www.greenlineint.com/assets/logo.png?v=202607251754">
+<style>
+  :root{
+    --c-bg:#f6f1ea; --c-card:#fffdf9; --c-brown:#7a5230; --c-brown-d:#5c3d22;
+    --c-accent:#a9743b; --c-text:#3a2c1c; --c-muted:#9a8a78; --c-line:#e7dccb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Segoe UI",-apple-system,"Microsoft YaHei",sans-serif;background:var(--c-bg);color:var(--c-text);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:32px 16px}
+  .lang{position:fixed;top:16px;right:16px}
+  .lang button{background:var(--c-card);border:1px solid var(--c-line);color:var(--c-brown);border-radius:20px;padding:6px 14px;cursor:pointer;font-size:13px}
+  .wrap{width:100%;max-width:680px;margin-top:24px}
+  .brand{text-align:center;font-size:22px;font-weight:700;color:var(--c-brown-d);letter-spacing:1px}
+  .brand span{color:var(--c-accent)}
+  h1{text-align:center;font-size:18px;font-weight:600;margin:10px 0 4px}
+  .sub{text-align:center;color:var(--c-muted);font-size:13px;margin-bottom:26px}
+  .box{background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;padding:22px;box-shadow:0 6px 24px rgba(122,82,48,.08)}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  .row input{flex:1;min-width:200px;padding:13px 14px;border:1px solid var(--c-line);border-radius:10px;font-size:15px;outline:none}
+  .row input:focus{border-color:var(--c-accent)}
+  .row button{background:var(--c-brown);color:#fff;border:none;border-radius:10px;padding:0 24px;font-size:15px;cursor:pointer;transition:.2s}
+  .row button:hover{background:var(--c-brown-d)}
+  .hint{color:var(--c-muted);font-size:12px;margin-top:10px;text-align:center}
+  .result{margin-top:20px;display:none}
+  .result.show{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .res-code{font-size:13px;color:var(--c-muted);margin-bottom:8px}
+  .res-code b{color:var(--c-brown-d);font-size:15px}
+  .res-info{background:var(--c-bg);border:1px solid var(--c-line);border-radius:12px;padding:18px;line-height:1.8;font-size:15px;white-space:pre-wrap;word-break:break-word}
+  .res-updated{margin-top:10px;font-size:12px;color:var(--c-muted);text-align:right}
+  .notfound{margin-top:20px;display:none;background:#fff4ec;border:1px solid #f0c9a8;color:#9a5a23;border-radius:12px;padding:16px;text-align:center;font-size:14px}
+  .notfound.show{display:block}
+  .admin-link{text-align:center;margin-top:22px;font-size:13px}
+  .admin-link a{color:var(--c-accent);text-decoration:none}
+  .admin-link a:hover{text-decoration:underline}
+  footer{margin-top:40px;font-size:12px;color:var(--c-muted);text-align:center}
+</style>
+</head>
+<body>
+  <div class="lang"><button id="langBtn">EN</button></div>
+  <div class="wrap">
+    <div class="brand">GREEN<span>LINE</span> 物流</div>
+    <h1 id="title">货物查询</h1>
+    <div class="sub" id="subtitle">请输入您的单号，查询货物运输信息</div>
+
+    <div class="box">
+      <div class="row">
+        <input id="codeInput" type="text" autocomplete="off" placeholder="输入单号 / Enter tracking no.">
+        <button id="searchBtn">查询</button>
+      </div>
+      <div class="hint" id="hint">支持订单号 / 提单号 / 箱号，由我司后台人员维护更新</div>
+
+      <div class="result" id="result">
+        <div class="res-code">单号 / CODE：<b id="resCode"></b></div>
+        <div class="res-info" id="resInfo"></div>
+        <div class="res-updated" id="resUpdated"></div>
+      </div>
+
+      <div class="notfound" id="notfound"></div>
+    </div>
+
+    <div class="admin-link"><a href="admin.html" id="adminLink">后台管理 / Admin</a></div>
+    <footer>GREENLINE Logistics · 货物查询系统</footer>
+  </div>
+
+<script>
+  var lang = 'cn';
+  var I18N = {
+    cn:{ title:'货物查询', sub:'请输入您的单号，查询货物运输信息',
+         ph:'输入单号 / Enter tracking no.', btn:'查询',
+         hint:'支持订单号 / 提单号 / 箱号，由我司后台人员维护更新',
+         nf:'未找到该单号的信息，请核对单号或联系我司客服。',
+         updated:'更新于', admin:'后台管理 / Admin', langBtn:'EN' },
+    en:{ title:'Cargo Tracking', sub:'Enter your tracking number to view shipment status',
+         ph:'Enter tracking no.', btn:'Track',
+         hint:'Order / B/L / Container no. maintained by our back-office team',
+         nf:'No information found for this number. Please verify or contact our support.',
+         updated:'Updated', admin:'Admin', langBtn:'中文' }
+  };
+  function applyLang(){
+    var t = I18N[lang];
+    document.getElementById('title').textContent = t.title;
+    document.getElementById('subtitle').textContent = t.sub;
+    document.getElementById('codeInput').placeholder = t.ph;
+    document.getElementById('searchBtn').textContent = t.btn;
+    document.getElementById('hint').textContent = t.hint;
+    document.getElementById('adminLink').textContent = t.admin;
+    document.getElementById('langBtn').textContent = t.langBtn;
+    document.documentElement.lang = (lang==='cn')?'zh-CN':'en';
+  }
+  document.getElementById('langBtn').addEventListener('click', function(){
+    lang = (lang==='cn')?'en':'cn'; applyLang();
+  });
+  applyLang();
+
+  var DATA = { entries: [] };
+  fetch('track-data.json?' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(j){ DATA = j; })
+    .catch(function(e){ console.warn('load track-data.json failed', e); });
+
+  function search(){
+    var code = (document.getElementById('codeInput').value || '').trim().toUpperCase();
+    var res = document.getElementById('result');
+    var nf  = document.getElementById('notfound');
+    res.classList.remove('show'); nf.classList.remove('show');
+    if(!code) return;
+    var found = null;
+    (DATA.entries||[]).forEach(function(e){
+      if((e.code||'').toUpperCase() === code) found = e;
+    });
+    if(found){
+      document.getElementById('resCode').textContent = found.code;
+      document.getElementById('resInfo').textContent = found.info || '';
+      document.getElementById('resUpdated').textContent =
+        (I18N[lang].updated) + '：' + (found.updated || '—');
+      res.classList.add('show');
+    } else {
+      nf.textContent = I18N[lang].nf;
+      nf.classList.add('show');
+    }
+  }
+  document.getElementById('searchBtn').addEventListener('click', search);
+  document.getElementById('codeInput').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') search();
+  });
+</script>
+</body>
+</html>

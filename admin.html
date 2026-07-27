@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>货物查询 · 后台管理</title>
+<style>
+  :root{--c-bg:#f6f1ea;--c-card:#fffdf9;--c-brown:#7a5230;--c-brown-d:#5c3d22;--c-accent:#a9743b;--c-text:#3a2c1c;--c-muted:#9a8a78;--c-line:#e7dccb}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Segoe UI","Microsoft YaHei",sans-serif;background:var(--c-bg);color:var(--c-text);padding:28px 16px}
+  .wrap{max-width:760px;margin:0 auto}
+  h1{font-size:20px;color:var(--c-brown-d);margin-bottom:6px}
+  .desc{color:var(--c-muted);font-size:13px;margin-bottom:20px}
+  .card{background:var(--c-card);border:1px solid var(--c-line);border-radius:14px;padding:18px;margin-bottom:18px}
+  label{display:block;font-size:13px;color:var(--c-brown-d);margin:12px 0 6px;font-weight:600}
+  input,textarea{width:100%;padding:11px 12px;border:1px solid var(--c-line);border-radius:9px;font-size:14px;font-family:inherit;outline:none}
+  input:focus,textarea:focus{border-color:var(--c-accent)}
+  textarea{min-height:110px;resize:vertical;line-height:1.7}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  button{background:var(--c-brown);color:#fff;border:none;border-radius:9px;padding:10px 18px;font-size:14px;cursor:pointer}
+  button.sec{background:#fff;color:var(--c-brown);border:1px solid var(--c-line)}
+  button:hover{filter:brightness(.95)}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+  th,td{border:1px solid var(--c-line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--c-bg);color:var(--c-brown-d)}
+  td code{color:var(--c-accent)}
+  .del{background:#c0392b;padding:5px 10px;font-size:12px}
+  .tip{font-size:12px;color:var(--c-muted);line-height:1.7;margin-top:8px}
+  a.back{color:var(--c-accent);text-decoration:none;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>货物查询 · 后台管理</h1>
+  <div class="desc">后台人员在此编写每条单号的信息，导出 <code>track-data.json</code> 后替换网站根目录同名文件即生效（约 1 分钟内全网更新）。</div>
+
+  <div class="card">
+    <label>单号 / Code（如 GL2026-001）</label>
+    <input id="fCode" type="text" placeholder="GL2026-001">
+    <label>信息 / Info（客户看到的内容，可多行）</label>
+    <textarea id="fInfo" placeholder="例如：您的货物已于 ... 装船，预计 ... 抵达 ..."></textarea>
+    <label>更新日期 / Updated（如 2026-07-27）</label>
+    <input id="fDate" type="text" placeholder="2026-07-27">
+    <div class="btns">
+      <button id="addBtn">添加到列表</button>
+      <button class="sec" id="impBtn">导入现有 JSON</button>
+      <button class="sec" id="expBtn">导出 track-data.json</button>
+      <input id="fileInput" type="file" accept=".json" style="display:none">
+    </div>
+    <div class="tip">提示：单号建议统一大写；信息字段支持换行，会原样显示给客户。</div>
+  </div>
+
+  <div class="card">
+    <strong style="color:var(--c-brown-d)">当前条目（<span id="cnt">0</span>）</strong>
+    <table>
+      <thead><tr><th>单号</th><th>信息</th><th>更新日期</th><th>操作</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="btns"><a class="back" href="track.html">← 返回查询页</a></div>
+  </div>
+</div>
+
+<script>
+  var entries = [];
+  function render(){
+    var tb = document.getElementById('tbody');
+    document.getElementById('cnt').textContent = entries.length;
+    tb.innerHTML = '';
+    entries.forEach(function(e, i){
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td><code>'+esc(e.code)+'</code></td><td>'+esc(e.info)+'</td><td>'+esc(e.updated||'')+'</td>'+
+        '<td><button class="del" data-i="'+i+'">删除</button></td>';
+      tb.appendChild(tr);
+    });
+    tb.querySelectorAll('.del').forEach(function(b){
+      b.addEventListener('click', function(){
+        entries.splice(+b.getAttribute('data-i'),1); render();
+      });
+    });
+  }
+  function esc(s){ return (s||'').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+
+  document.getElementById('addBtn').addEventListener('click', function(){
+    var code = document.getElementById('fCode').value.trim();
+    var info = document.getElementById('fInfo').value.trim();
+    var date = document.getElementById('fDate').value.trim();
+    if(!code || !info){ alert('请填写单号和信息'); return; }
+    entries.push({ code: code, info: info, updated: date });
+    document.getElementById('fCode').value='';
+    document.getElementById('fInfo').value='';
+    document.getElementById('fDate').value='';
+    render();
+  });
+
+  document.getElementById('impBtn').addEventListener('click', function(){
+    document.getElementById('fileInput').click();
+  });
+  document.getElementById('fileInput').addEventListener('change', function(ev){
+    var f = ev.target.files[0]; if(!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try{ var j = JSON.parse(r.result); entries = j.entries||[]; render(); alert('导入成功，共 '+entries.length+' 条'); }
+      catch(e){ alert('JSON 解析失败：'+e.message); }
+    };
+    r.readAsText(f);
+  });
+
+  document.getElementById('expBtn').addEventListener('click', function(){
+    var blob = new Blob([JSON.stringify({entries:entries}, null, 2)], {type:'application/json'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'track-data.json';
+    a.click();
+  });
+
+  render();
+</script>
+</body>
+</html>
