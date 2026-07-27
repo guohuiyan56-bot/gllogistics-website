@@ -200,6 +200,18 @@ a:hover { color: var(--accent) }
 }
 .nav a.active::after { transform: translateX(-50%) scaleX(1); }
 
+/* Track Order nav item */
+.nav a.nav-track {
+  color: #d4a853;
+  background: linear-gradient(135deg, rgba(212,168,83,.20), rgba(212,168,83,.06));
+  border: 1px solid rgba(212,168,83,.45);
+  border-radius: 20px;
+  padding: 7px 16px !important;
+  font-weight: 700;
+}
+.nav a.nav-track::after { display: none; }
+.nav a.nav-track:hover { background: #d4a853; color: #2a1a10; }
+
 /* Search */
 .nav-right { display: flex; align-items: center; gap: 14px }
 .search-box {
