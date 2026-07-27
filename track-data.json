@@ -2,14 +2,8 @@
   "entries": [
     {
       "code": "GL2026-001",
-      "info": "尊敬的客户，您的货物（订单 GL2026-001）正在运输途中。承运船舶：COSCO SHIPPING LINE。如有疑问请联系我司客服。",
-      "updated": "2026-07-27",
-      "events": [
-        { "date": "2026-07-22", "status": "已揽收", "location": "广州", "note": "仓库收货，安排验货" },
-        { "date": "2026-07-25", "status": "已装船", "location": "深圳盐田港", "note": "承运船舶 COSCO SHIPPING LINE" },
-        { "date": "2026-07-26", "status": "已离港", "location": "深圳盐田港", "note": "驶往目的港" },
-        { "date": "2026-08-20", "status": "预计到达", "location": "目的港", "note": "预计抵达目的港" }
-      ]
+      "info": "已装柜",
+      "updated": "2026-07-08"
     }
   ]
 }
