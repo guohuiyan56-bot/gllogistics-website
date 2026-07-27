@@ -5,27 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Service Zones — GREENLINE LOGISTICS</title>
 <meta name="description" content="GREENLINE LOGISTICS service zones covering Oceania, Middle East & Africa with comprehensive logistics networks.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%235c3d2a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-weight='bold' fill='white'>GL</text></svg>">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="style.css">
+<script src="i18n.js"></script>
 </head>
 <body>
 
-<div class="topbar"><span class="lang-switch">中文 / English</span></div>
+<div class="topbar"><span class="lang-switch">English</span></div>
 
 <header class="header">
   <div class="header-inner">
     <button class="menu-toggle" onclick="document.querySelector('.nav').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="logo">GREENLINE LOGISTICS</div>
+    <div class="logo" data-i18n="logo">GREENLINE LOGISTICS</div>
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="service-zones.html" class="active">Service Zones</a>
-      <a href="service.html">Service</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="index.html#track" class="nav-track">Track Order / 货物追踪</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="service-zones.html" class="active" data-i18n="nav.zones">Service Zones</a>
+      <a href="service.html" data-i18n="nav.service">Service</a>
+      <a href="about.html" data-i18n="nav.about">About Us</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+      <a href="index.html#track" class="nav-track" data-i18n="nav.track">Track Order</a>
     </nav>
     <div class="nav-right">
-      <div class="search-box"><input type="text" placeholder="Search..."><button>&#128269;</button></div>
+      <div class="search-box">
+        <input type="text" id="siteSearch" data-i18n-ph="search.ph" placeholder="Search...">
+        <button type="button" id="searchBtnNav" title="Search this page">&#128269;</button>
+      </div>
     </div>
   </div>
 </header>
@@ -38,74 +42,120 @@
 <!-- Service Zones Content -->
 <section class="section reveal" style="padding-top:48px">
   <div class="container">
-    <h2 class="section-title">Service Zones</h2>
+    <h2 class="section-title" data-i18n="zones.title">Service Zones</h2>
     <div class="text-block">
-      <p>Supported by comprehensive transportation systems, robust resource integration capabilities and a global service network, we keep expanding our international footprint to deliver stable, efficient and professional supply chain &amp; integrated logistics solutions for clients worldwide.</p>
-      <p>Over the years, we have continuously optimized our supply chain management procedures, built up global logistics resources. We have developed a sound and rational transportation system to guarantee safe and on-time delivery of goods to every corner of the globe with higher efficiency, and full transparency.</p>
-      <p>Equipped with advanced logistics frameworks and mature supply chain strategies, we respond swiftly to diverse market demands, helping clients cut operational costs and boost operational efficiency, enabling seamless shipment tracking from origin to end markets. Whether you aim for cross-regional cooperation or global market expansion, we deliver precise, efficient logistics services to get your goods shipped safely and rapidly to global destinations.</p>
-      <p>We always uphold integrity as our core principle, take client demands as priority and rely on professional services as our guarantee, building long-term stable partnerships with global collaborators. Moving forward, we will further upgrade our international service capacity, boost resource sharing and value co-creation, and stand side by side with clients across the globe to jointly foster long-lasting, stable and sustainable growth.</p>
+      <p data-i18n="zones.intro1">Supported by comprehensive transportation systems, robust resource integration capabilities and a global service network, we keep expanding our international footprint to deliver stable, efficient and professional supply chain & integrated logistics solutions for clients worldwide. Over the years, we have continuously optimized our supply chain management procedures, built up global logistics resources. We have developed a sound and rational transportation system to guarantee safe and on-time delivery of goods to every corner of the globe with higher efficiency, and full transparency.</p>
+      <p data-i18n="zones.intro2">Equipped with advanced logistics frameworks and mature supply chain strategies, we respond swiftly to diverse market demands, helping clients cut operational costs and boost operational efficiency, enabling seamless shipment tracking from origin to end markets. Whether you aim for cross-regional cooperation or global market expansion, we deliver precise, efficient logistics services to get your goods shipped safely and rapidly to global destinations.</p>
+      <p data-i18n="zones.intro3">We always uphold integrity as our core principle, take client demands as priority and rely on professional services as our guarantee, building long-term stable partnerships with global collaborators. Moving forward, we will further upgrade our international service capacity, boost resource sharing and value co-creation, and stand side by side with clients across the globe to jointly foster long-lasting, stable and sustainable growth.</p>
     </div>
 
     <!-- Service Areas — Three Columns with Real Maps -->
-    <h2 class="section-title" style="margin-top:48px">Service Areas</h2>
+    <h2 class="section-title" style="margin-top:48px" data-i18n="zones.areas.title">Service Areas</h2>
     <div class="three-col">
 
       <!-- Oceania -->
       <div class="col-card">
         <img src="images/map-oceania.png" alt="Oceania Service Area — Australia & Pacific Islands Map">
-        <h3>Oceania — Pacific Islands</h3>
-        <p>Covers mainland Australia, connecting New Zealand, Fiji, Papua New Guinea and other South Pacific islands. We own self-operated terminals, warehousing with full end-to-end logistics coverage, offering full container (FCL), LCL, loose cargo, low-platform containers and all-category container shipping. Our seasoned customs clearance team handles commodity classification, securing construction, door-to-door delivery, ensuring direct door-to-door overseas buyers. We also provide synchronized supply-chain financial support.</p>
+        <h3 data-i18n="zones.oceania.title">Oceania — Pacific Islands</h3>
+        <p data-i18n="zones.oceania.desc">Covers mainland Australia, connecting New Zealand, Fiji, Papua New Guinea and other South Pacific islands. We own self-operated terminals, warehousing with full end-to-end logistics coverage, offering full container (FCL), LCL, loose cargo, low-platform containers and all-category container shipping. Our seasoned customs clearance team handles commodity classification, securing construction, door-to-door delivery, ensuring direct door-to-door overseas buyers. We also provide synchronized supply-chain financial support.</p>
       </div>
 
       <!-- Middle East -->
       <div class="col-card">
         <img src="images/map-mideast.png" alt="Middle East & North Africa Service Area Map">
-        <h3>Middle East &amp; North Africa</h3>
-        <p>We specialize in core trade lanes linking the Middle East, Europe and Africa, with self-owned warehouses in Dubai and Doha that facilitate distribution across GCC nations, North, East and West Africa's major ports. We cater to large-scale infrastructure projects, offering piling vessel chartering, bulk cargo shipping, as well as door-to-port double-clearance tax-inclusive one-stop-logistics solutions.</p>
+        <h3 data-i18n="zones.mideast.title">Middle East &amp; North Africa</h3>
+        <p data-i18n="zones.mideast.desc">We specialize in core trade lanes linking the Middle East, Europe and Africa, with self-owned warehouses in Dubai and Doha that facilitate distribution across GCC nations, North, East and West Africa's major ports. We cater to large-scale infrastructure projects, offering piling vessel chartering, bulk cargo shipping, as well as door-to-port double-clearance tax-inclusive one-stop-logistics solutions.</p>
       </div>
 
       <!-- Africa -->
       <div class="col-card">
         <img src="images/map-africa.png" alt="Africa Full Coverage Service Area Map">
-        <h3>Africa — Full Coverage</h3>
-        <p>We provide all-round customs clearance, document handling and tax declaration services for global destinations, including booking for FCL &amp; LCL sea freight, truck haulage, customers' declaration, single and double-clearance tax-inclusive packages. Our all-in-one cross-border logistics chain covers customs clearance, haulage and last-mile delivery, unlocking booming infrastructure trade opportunities in Africa.</p>
+        <h3 data-i18n="zones.africa.title">Africa — Full Coverage</h3>
+        <p data-i18n="zones.africa.desc">We provide all-round customs clearance, document handling and tax declaration services for global destinations, including booking for FCL &amp; LCL sea freight, truck haulage, customers' declaration, single and double-clearance tax-inclusive packages. Our all-in-one cross-border logistics chain covers customs clearance, haulage and last-mile delivery, unlocking booming infrastructure trade opportunities in Africa.</p>
       </div>
 
     </div>
   </div>
 </section>
 
+<!-- Search Results Overlay -->
+<div id="searchOverlay" class="search-overlay" style="display:none">
+  <div class="search-overlay-inner">
+    <div class="search-overlay-header">
+      <span data-i18n="search.results">Search Results</span>
+      <button onclick="closeSearch()" class="search-close">&times;</button>
+    </div>
+    <div id="searchResultsBody" class="search-results-body"></div>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-col">
-      <h4>GREENLINE LOGISTICS</h4>
-      <p>Professional international freight forwarding and integrated logistics services.</p>
+      <h4 data-i18n="logo">GREENLINE LOGISTICS</h4>
+      <p data-i18n="footer.company">Professional international freight forwarding and integrated logistics services.</p>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
+      <h4 data-i18n="footer.contact">Contact</h4>
       <p>Tel: +86 18924154000</p>
       <p>Email: info@greenlineint.com</p>
       <p>Email: shipping@greenlineint.com</p>
     </div>
     <div class="footer-col">
-      <h4>Address</h4>
+      <h4 data-i18n="footer.address">Address</h4>
       <p>Room 711, 7th Floor<br>Golden Eagle Building<br>No.316 Huanshi Middle Road<br>Yuexiu District, Guangzhou</p>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2026 GREENLINE LOGISTICS — All rights reserved.</div>
+  <div class="footer-bottom" data-i18n="footer.copyright.short">&copy; 2026 GREENLINE LOGISTICS — All rights reserved.</div>
 </footer>
 
 <script>
+/* ---- Real On-Page Search ---- */
 (function(){
-  var reveals = document.querySelectorAll('.reveal');
-  if(!reveals.length) return;
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: .12 });
-  reveals.forEach(function(el){ observer.observe(el); });
+  var input = document.getElementById('siteSearch');
+  var btn   = document.getElementById('searchBtnNav');
+  if(!input || !btn) return;
+  function doSearch(){
+    var q = (input.value||'').trim().toLowerCase();
+    if(!q){ closeSearch(); return; }
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: function(n){
+      var p=n.parentElement; if(!p) return NodeFilter.FILTER_REJECT;
+      if(/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName)) return NodeFilter.FILTER_REJECT;
+      if(p.closest('nav,.nav,.footer,.header,.topbar,.search-overlay,.back-top,.mascot')) return NodeFilter.FILTER_REJECT;
+      if(n.textContent.trim().length<2) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }});
+    var matches=[], node;
+    while(node=walker.nextNode()){
+      if(node.textContent.trim().toLowerCase().indexOf(q)!==-1){
+        var el=node.parentElement.closest('section,[class*="card"],[class*="col"],.text-block,h1,h2,h3,p')||node.parentElement;
+        if(matches.indexOf(el)===-1) matches.push(el);
+      }
+    }
+    showRes(q,matches);
+  }
+  function showRes(q,els){
+    var ov=document.getElementById('searchOverlay'), body=document.getElementById('searchResultsBody');
+    ov.style.display='flex';
+    if(!els.length){ body.innerHTML='<div class="search-empty">'+(I18N.curLang()==='zh'?'未找到匹配内容。':'No matching content found.')+'</div>'; return; }
+    var h=''; els.slice(0,20).forEach(function(el){
+      var t=el.textContent.replace(/\s+/g,' ').trim(); if(t.length>200) t=t.substring(0,200)+'...';
+      var re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+      h+='<div class="search-result-item">'+t.replace(re,'<mark>$1</mark>')+'</div>';
+    }); body.innerHTML=h;
+  }
+  window.closeSearch=function(){document.getElementById('searchOverlay').style.display='none';};
+  btn.addEventListener('click',doSearch);
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')doSearch();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSearch();});
+})();
+
+/* Scroll Reveal */
+(function(){
+  var reveals=document.querySelectorAll('.reveal'); if(!reveals.length) return;
+  var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');}); },{threshold:.12});
+  reveals.forEach(function(el){obs.observe(el);});
 })();
 </script>
 

@@ -5,27 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us — GREENLINE LOGISTICS</title>
 <meta name="description" content="About GREENLINE LOGISTICS — our team, mission, and commitment to professional international freight forwarding services.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%235c3d2a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-weight='bold' fill='white'>GL</text></svg>">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="style.css">
+<script src="i18n.js"></script>
 </head>
 <body>
 
-<div class="topbar"><span class="lang-switch">中文 / English</span></div>
+<div class="topbar"><span class="lang-switch">English</span></div>
 
 <header class="header">
   <div class="header-inner">
     <button class="menu-toggle" onclick="document.querySelector('.nav').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="logo">GREENLINE LOGISTICS</div>
+    <div class="logo" data-i18n="logo">GREENLINE LOGISTICS</div>
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="service-zones.html">Service Zones</a>
-      <a href="service.html">Service</a>
-      <a href="about.html" class="active">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="index.html#track" class="nav-track">Track Order / 货物追踪</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="service-zones.html" data-i18n="nav.zones">Service Zones</a>
+      <a href="service.html" data-i18n="nav.service">Service</a>
+      <a href="about.html" class="active" data-i18n="nav.about">About Us</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+      <a href="index.html#track" class="nav-track" data-i18n="nav.track">Track Order</a>
     </nav>
     <div class="nav-right">
-      <div class="search-box"><input type="text" placeholder="Search..."><button>&#128269;</button></div>
+      <div class="search-box">
+        <input type="text" id="siteSearch" data-i18n-ph="search.ph" placeholder="Search...">
+        <button type="button" id="searchBtnNav" title="Search this page">&#128269;</button>
+      </div>
     </div>
   </div>
 </header>
@@ -38,14 +42,14 @@
 <!-- About Content -->
 <section class="section reveal">
   <div class="container">
-    <h2 class="section-title">About Us</h2>
+    <h2 class="section-title" data-i18n="about.title">About Us</h2>
     <div class="about-layout">
       <div class="text-block">
-        <p>Our clients are located all over the world, covering Oceania, the Middle East and Africa. Our major customers come from Australia, Fiji, Papua New Guinea, New Zealand, Saudi Arabia, Jordan, Qatar, the United Arab Emirates, Egypt and Guinea. Customer satisfaction is our top priority. We devote time and energy and resources to maximize value for every client.</p>
-        <p>We provide one-stop full services including document preparation, commodity inspection, tax payment, customs declaration, door-to-door transportation and customs clearance delivery to your designated address. Professional service. We accept cargo 24 hours a day in Guangzhou and offer nationwide pickup service. You can track accurate shipment updates at any time.</p>
-        <p><strong>One-stop solution:</strong> Our team handles all procedures including documentation, inspection, export declaration, customs clearance and final delivery, ensuring safe and hassle-free shipping.</p>
-        <p><strong>Easy service process:</strong> You only need to provide packing list and sender/receiver information. We arrange door pickup nationwide for fast and convenient logistics.</p>
-        <p>Feel free to contact us for inquiries!</p>
+        <p data-i18n="about.p1">Our clients are located all over the world, covering Oceania, the Middle East and Africa. Our major customers come from Australia, Fiji, Papua New Guinea, New Zealand, Saudi Arabia, Jordan, Qatar, the United Arab Emirates, Egypt and Guinea. Customer satisfaction is our top priority. We devote time and energy and resources to maximize value for every client.</p>
+        <p data-i18n="about.p2">We provide one-stop full services including document preparation, commodity inspection, tax payment, customs declaration, door-to-door transportation and customs clearance delivery to your designated address. Professional service. We accept cargo 24 hours a day in Guangzhou and offer nationwide pickup service. You can track accurate shipment updates at any time.</p>
+        <p><strong data-i18n="about.one_stop">One-stop solution:</strong> Our team handles all procedures including documentation, inspection, export declaration, customs clearance and final delivery, ensuring safe and hassle-free shipping.</p>
+        <p><strong data-i18n="about.easy_process">Easy service process:</strong> You only need to provide packing list and sender/receiver information. We arrange door pickup nationwide for fast and convenient logistics.</p>
+        <p data-i18n="about.cta">Feel free to contact us for inquiries!</p>
       </div>
       <div class="about-pics">
         <img src="images/icons/warehouse.jpg" alt="Warehouse Interior — Logistics Center">
@@ -54,65 +58,78 @@
     </div>
 
     <!-- Core Advantages -->
-    <h2 class="section-title" style="margin-top:52px">Core Advantages</h2>
+    <h2 class="section-title" style="margin-top:52px" data-i18n="home.core.title">Core Advantages</h2>
     <div class="card-grid reveal">
       <div class="card-img">
         <img src="images/icons/ocean.jpg" alt="International Ocean Shipping">
-        <div class="label">International Ocean Shipping</div>
+        <div class="label" data-i18n="home.core.ocean">International Ocean Shipping</div>
       </div>
       <div class="card-img">
         <img src="images/icons/air.jpg" alt="International Air Freight">
-        <div class="label">International Air Freight</div>
+        <div class="label" data-i18n="home.core.air">International Air Freight</div>
       </div>
       <div class="card-img">
         <img src="images/icons/door.jpg" alt="Door-to-door Sea Freight">
-        <div class="label">Door-to-door Sea Freight</div>
+        <div class="label" data-i18n="home.core.door">Door-to-door Sea Freight</div>
       </div>
       <div class="card-img">
         <img src="images/icons/global.jpg" alt="Stable Global Delivery">
-        <div class="label">Stable Global Delivery</div>
+        <div class="label" data-i18n="home.core.global">Stable Global Delivery</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Search Results Overlay -->
+<div id="searchOverlay" class="search-overlay" style="display:none">
+  <div class="search-overlay-inner">
+    <div class="search-overlay-header">
+      <span data-i18n="search.results">Search Results</span>
+      <button onclick="closeSearch()" class="search-close">&times;</button>
+    </div>
+    <div id="searchResultsBody" class="search-results-body"></div>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-col">
-      <h4>GREENLINE LOGISTICS</h4>
-      <p>Professional international freight forwarding and integrated logistics services.</p>
+      <h4 data-i18n="logo">GREENLINE LOGISTICS</h4>
+      <p data-i18n="footer.company">Professional international freight forwarding and integrated logistics services.</p>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
+      <h4 data-i18n="footer.contact">Contact</h4>
       <p>Tel: +86 18924154000</p>
       <p>Email: info@greenlineint.com</p>
       <p>Email: shipping@greenlineint.com</p>
     </div>
     <div class="footer-col">
-      <h4>Address</h4>
+      <h4 data-i18n="footer.address">Address</h4>
       <p>Room 711, 7th Floor<br>Golden Eagle Building<br>No.316 Huanshi Middle Road<br>Yuexiu District, Guangzhou</p>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2026 GREENLINE LOGISTICS — All rights reserved.</div>
+  <div class="footer-bottom" data-i18n="footer.copyright.short">&copy; 2026 GREENLINE LOGISTICS — All rights reserved.</div>
 </footer>
 
 <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">&#9650;</button>
 
 <script>
+/* Real On-Page Search */
 (function(){
-  var reveals = document.querySelectorAll('.reveal');
-  if(!reveals.length) return;
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){ if(entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: .12 });
-  reveals.forEach(function(el){ observer.observe(el); });
+  var i=document.getElementById('siteSearch'),b=document.getElementById('searchBtnNav');if(!i||!b)return;
+  function ds(){var q=(i.value||'').trim().toLowerCase();if(!q){closeSearch();return;}
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentElement;if(!p)return NodeFilter.FILTER_REJECT;if(/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName))return NodeFilter.FILTER_REJECT;if(p.closest('nav,.nav,.footer,.header,.topbar,.search-overlay,.back-top,.mascot'))return NodeFilter.FILTER_REJECT;if(n.textContent.trim().length<2)return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}});
+    var m=[],n;while(n=w.nextNode()){if(n.textContent.trim().toLowerCase().indexOf(q)!==-1){var e=n.parentElement.closest('section,[class*="card"],[class*="col"],.text-block,h1,h2,h3,p')||n.parentElement;if(m.indexOf(e)===-1)m.push(e);}}
+    sr(q,m);}
+  function sr(q,els){var o=document.getElementById('searchOverlay'),bd=document.getElementById('searchResultsBody');o.style.display='flex';if(!els.length){bd.innerHTML='<div class="search-empty">'+(I18N.curLang()==='zh'?'未找到匹配内容。':'No matching content found.')+'</div>';return;}var h='';els.slice(0,20).forEach(function(el){var t=el.textContent.replace(/\s+/g,' ').trim();if(t.length>200)t=t.substring(0,200)+'...';var re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');h+='<div class="search-result-item">'+t.replace(re,'<mark>$1</mark>')+'</div>';});bd.innerHTML=h;}
+  window.closeSearch=function(){document.getElementById('searchOverlay').style.display='none';};
+  b.addEventListener('click',ds);i.addEventListener('keydown',function(e){if(e.key==='Enter')ds();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSearch();});
 })();
-(function(){
-  var btn = document.querySelector('.back-top');
-  if(!btn) return;
-  window.addEventListener('scroll', function(){ if(window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }, { passive: true });
-})();
+/* Scroll Reveal + Back Top */
+(function(){var r=document.querySelectorAll('.reveal');if(!r.length)return;var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.12});r.forEach(function(el){o.observe(el);});})();
+(function(){var bt=document.querySelector('.back-top');if(!bt)return;window.addEventListener('scroll',function(){if(window.scrollY>400)bt.classList.add('visible');else bt.classList.remove('visible');},{passive:true});})();
 </script>
 
 </body>

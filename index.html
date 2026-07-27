@@ -6,33 +6,34 @@
 <title>GREENLINE LOGISTICS — International Freight Forwarding & Logistics</title>
 <meta name="description" content="GREENLINE LOGISTICS — Professional international freight forwarding, ocean shipping, air freight, customs clearance, and door-to-door logistics solutions. Serving Oceania, Middle East & Africa.">
 <meta name="keywords" content="freight forwarding, logistics, ocean shipping, air freight, customs clearance, international shipping, cargo tracking, GREENLINE">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%235c3d2a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-weight='bold' fill='white'>GL</text></svg>">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="style.css">
+<script src="i18n.js"></script>
 </head>
 <body>
 
 <!-- Top Bar -->
 <div class="topbar">
-  <span class="lang-switch">中文 / English</span>
+  <span class="lang-switch">English</span>
 </div>
 
 <!-- Header / Navigation -->
 <header class="header">
   <div class="header-inner">
     <button class="menu-toggle" onclick="document.querySelector('.nav').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="logo">GREENLINE LOGISTICS</div>
+    <div class="logo" data-i18n="logo">GREENLINE LOGISTICS</div>
     <nav class="nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="service-zones.html">Service Zones</a>
-      <a href="service.html">Service</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="index.html#track" class="nav-track">Track Order / 货物追踪</a>
+      <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+      <a href="service-zones.html" data-i18n="nav.zones">Service Zones</a>
+      <a href="service.html" data-i18n="nav.service">Service</a>
+      <a href="about.html" data-i18n="nav.about">About Us</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+      <a href="index.html#track" class="nav-track" data-i18n="nav.track">Track Order</a>
     </nav>
     <div class="nav-right">
       <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <button type="button">&#128269;</button>
+        <input type="text" id="siteSearch" data-i18n-ph="search.ph" placeholder="Search...">
+        <button type="button" id="searchBtnNav" title="Search this page">&#128269;</button>
       </div>
     </div>
   </div>
@@ -42,31 +43,31 @@
 <section class="hero">
   <img src="images/hero-home.png" alt="International Transportation Logistics — Airplane and Cargo Ship">
   <div class="hero-overlay">
-    <h1>International Logistics</h1>
-    <p>Reliable Freight Forwarding Across Oceania, Middle East &amp; Africa</p>
+    <h1 data-i18n="home.hero.title">International Logistics</h1>
+    <p data-i18n="home.hero.sub">Reliable Freight Forwarding Across Oceania, Middle East &amp; Africa</p>
   </div>
 </section>
 
 <!-- Core Advantages -->
 <section class="section reveal">
   <div class="container">
-    <h2 class="section-title">Core Advantages</h2>
+    <h2 class="section-title" data-i18n="home.core.title">Core Advantages</h2>
     <div class="card-grid">
       <div class="card-img">
         <img src="images/icons/ocean.jpg" alt="International Ocean Shipping">
-        <div class="label">International Ocean Shipping</div>
+        <div class="label" data-i18n="home.core.ocean">International Ocean Shipping</div>
       </div>
       <div class="card-img">
         <img src="images/icons/air.jpg" alt="International Air Freight">
-        <div class="label">International Air Freight</div>
+        <div class="label" data-i18n="home.core.air">International Air Freight</div>
       </div>
       <div class="card-img">
         <img src="images/icons/door.jpg" alt="Door-to-door Sea Freight">
-        <div class="label">Door-to-door Sea Freight</div>
+        <div class="label" data-i18n="home.core.door">Door-to-door Sea Freight</div>
       </div>
       <div class="card-img">
         <img src="images/icons/global.jpg" alt="Stable Global Delivery">
-        <div class="label">Stable Global Delivery</div>
+        <div class="label" data-i18n="home.core.global">Stable Global Delivery</div>
       </div>
     </div>
   </div>
@@ -76,15 +77,15 @@
 <section class="full-banner">
   <img src="images/banner-highway.png" alt="Professional Transportation & Logistics Highway">
   <div class="banner-text">
-    <h2>Professional Transportation &amp; Logistics</h2>
-    <p>Smooth Shipping for You All the Way</p>
+    <h2 data-i18n="home.banner.title">Professional Transportation &amp; Logistics</h2>
+    <p data-i18n="home.banner.sub">Smooth Shipping for You All the Way</p>
   </div>
 </section>
 
 <!-- Service Items -->
 <section class="section reveal">
   <div class="container">
-    <h2 class="section-title">Service Items</h2>
+    <h2 class="section-title" data-i18n="home.service.title">Service Items</h2>
     <div class="card-grid">
       <div class="card-img">
         <img src="images/icons/air.jpg" alt="Air Freight Services">
@@ -106,15 +107,15 @@
 <section class="section">
   <div class="container">
     <div class="track-section" id="track">
-      <h2>Cargo Tracking / 货物追踪</h2>
-      <div class="track-sub">Enter your tracking number to view shipment status / 输入单号查询货物状态</div>
+      <h2 data-i18n="track.title">Cargo Tracking</h2>
+      <div class="track-sub" data-i18n="track.sub">Enter your tracking number to view shipment status</div>
       <div class="track-row">
-        <input id="codeInput" type="text" autocomplete="off" placeholder="Enter tracking number / 输入单号...">
-        <button id="searchBtn">Track / 查询</button>
+        <input id="codeInput" type="text" autocomplete="off" data-i18n-ph="track.ph" placeholder="Enter tracking number...">
+        <button id="searchBtn" data-i18n="track.btn">Track</button>
       </div>
-      <div class="track-hint">Order / B/L / Container no. maintained by our back-office team</div>
+      <div class="track-hint" data-i18n="track.hint">Order / B/L / Container no. maintained by our back-office team</div>
       <div class="track-result" id="result">
-        <div class="track-res-code">CODE: <b id="resCode"></b></div>
+        <div class="track-res-code"><span data-i18n="track.code">CODE:</span> <b id="resCode"></b></div>
         <div class="track-res-info" id="resInfo"></div>
         <div class="track-res-time" id="resUpdated"></div>
       </div>
@@ -123,26 +124,37 @@
   </div>
 </section>
 
+<!-- Search Results Overlay (hidden by default) -->
+<div id="searchOverlay" class="search-overlay" style="display:none">
+  <div class="search-overlay-inner">
+    <div class="search-overlay-header">
+      <span data-i18n="search.results">Search Results</span>
+      <button onclick="closeSearch()" class="search-close">&times;</button>
+    </div>
+    <div id="searchResultsBody" class="search-results-body"></div>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-col">
-      <h4>GREENLINE LOGISTICS</h4>
-      <p>Professional international freight forwarding and integrated logistics services.</p>
-      <p>Serving clients across Oceania, Middle East &amp; Africa since establishment.</p>
+      <h4 data-i18n="logo">GREENLINE LOGISTICS</h4>
+      <p data-i18n="footer.company">Professional international freight forwarding and integrated logistics services.</p>
+      <p data-i18n="footer.serving">Serving clients across Oceania, Middle East &amp; Africa since establishment.</p>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
+      <h4 data-i18n="footer.contact">Contact</h4>
       <p><strong>Tel:</strong> +86 18924154000</p>
       <p><strong>Email:</strong> info@greenlineint.com</p>
       <p><strong>Email:</strong> shipping@greenlineint.com</p>
     </div>
     <div class="footer-col">
-      <h4>Address</h4>
+      <h4 data-i18n="footer.address">Address</h4>
       <p>Room 711, 7th Floor<br>Golden Eagle Building<br>No.316 Huanshi Middle Road<br>Yuexiu District, Guangzhou, China</p>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="footer-bottom" data-i18n="footer.copyright">
     &copy; 2026 GREENLINE LOGISTICS — International Freight Forwarding. All rights reserved.
   </div>
 </footer>
@@ -168,10 +180,10 @@ function search(){
   if(found){
     document.getElementById('resCode').textContent = found.code;
     document.getElementById('resInfo').textContent = found.info || '';
-    document.getElementById('resUpdated').textContent = 'Updated: ' + (found.updated || '—');
+    document.getElementById('resUpdated').textContent = (I18N.curLang()==='zh'?'更新时间：':'Updated: ') + (found.updated || '—');
     res.classList.add('show');
   } else {
-    nf.textContent = 'No information found for this number. Please verify or contact our support.\n未找到该单号信息，请核对后重试或联系客服。';
+    nf.textContent = I18N.t('track.nf');
     nf.classList.add('show');
   }
 }
@@ -179,6 +191,77 @@ document.getElementById('searchBtn').addEventListener('click', search);
 document.getElementById('codeInput').addEventListener('keydown', function(e){
   if(e.key === 'Enter') search();
 });
+
+/* ---- Real On-Page Search ---- */
+(function(){
+  var input = document.getElementById('siteSearch');
+  var btn   = document.getElementById('searchBtnNav');
+  if(!input || !btn) return;
+
+  function doSearch(){
+    var q = (input.value||'').trim().toLowerCase();
+    if(!q){ closeSearch(); return; }
+    // Collect searchable text nodes from main content
+    var walker = document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT,
+      { acceptNode: function(n){
+        var p = n.parentElement;
+        if(!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        // skip script/style/nav/footer/header/.search-overlay
+        if(/^(SCRIPT|STYLE|NOSCRIPT)$/.test(tag)) return NodeFilter.FILTER_REJECT;
+        if(p.closest('nav,.nav,.footer,.header,.topbar,.search-overlay,.track-row,.back-top,.mascot')) return NodeFilter.FILTER_REJECT;
+        if(n.textContent.trim().length < 2) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }}
+    );
+    var matches = [];
+    var node;
+    while(node = walker.nextNode()){
+      var text = node.textContent.trim();
+      if(text.toLowerCase().indexOf(q) !== -1){
+        var el = node.parentElement;
+        // Get a meaningful context
+        var ctx = el.closest('section,[class*="card"],[class*="col"],.text-block,h1,h2,h3,p') || el;
+        // Avoid duplicates
+        if(matches.indexOf(ctx) === -1) matches.push(ctx);
+      }
+    }
+    showResults(q, matches);
+  }
+
+  function showResults(q, els){
+    var overlay = document.getElementById('searchOverlay');
+    var body    = document.getElementById('searchResultsBody');
+    overlay.style.display = 'flex';
+    if(els.length === 0){
+      body.innerHTML = '<div class="search-empty">'+(I18N.curLang()==='zh'?'未找到匹配内容。':'No matching content found.')+'</div>';
+      return;
+    }
+    var html = '';
+    // Limit to 20 results
+    els.slice(0,20).forEach(function(el){
+      var text = el.textContent.replace(/\s+/g,' ').trim();
+      // Truncate
+      if(text.length > 200) text = text.substring(0,200)+'...';
+      // Highlight
+      var re = new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+      text = text.replace(re,'<mark>$1</mark>');
+      html += '<div class="search-result-item">'+text+'</div>';
+    });
+    body.innerHTML = html;
+  }
+
+  window.closeSearch = function(){
+    document.getElementById('searchOverlay').style.display = 'none';
+  };
+
+  btn.addEventListener('click', doSearch);
+  input.addEventListener('keydown', function(e){ if(e.key==='Enter') doSearch(); });
+  // ESC to close
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeSearch(); });
+})();
 
 /* ---- Scroll Reveal ---- */
 (function(){

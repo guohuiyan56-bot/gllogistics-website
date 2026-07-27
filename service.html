@@ -5,27 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Service — GREENLINE LOGISTICS</title>
 <meta name="description" content="GREENLINE LOGISTICS services: air transportation, import/export customs clearance, sea shipping, and international express delivery.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%235c3d2a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-weight='bold' fill='white'>GL</text></svg>">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="style.css">
+<script src="i18n.js"></script>
 </head>
 <body>
 
-<div class="topbar"><span class="lang-switch">中文 / English</span></div>
+<div class="topbar"><span class="lang-switch">English</span></div>
 
 <header class="header">
   <div class="header-inner">
     <button class="menu-toggle" onclick="document.querySelector('.nav').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="logo">GREENLINE LOGISTICS</div>
+    <div class="logo" data-i18n="logo">GREENLINE LOGISTICS</div>
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="service-zones.html">Service Zones</a>
-      <a href="service.html" class="active">Service</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="index.html#track" class="nav-track">Track Order / 货物追踪</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="service-zones.html" data-i18n="nav.zones">Service Zones</a>
+      <a href="service.html" class="active" data-i18n="nav.service">Service</a>
+      <a href="about.html" data-i18n="nav.about">About Us</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+      <a href="index.html#track" class="nav-track" data-i18n="nav.track">Track Order</a>
     </nav>
     <div class="nav-right">
-      <div class="search-box"><input type="text" placeholder="Search..."><button>&#128269;</button></div>
+      <div class="search-box">
+        <input type="text" id="siteSearch" data-i18n-ph="search.ph" placeholder="Search...">
+        <button type="button" id="searchBtnNav" title="Search this page">&#128269;</button>
+      </div>
     </div>
   </div>
 </header>
@@ -38,38 +42,38 @@
 <!-- Service Cards -->
 <section class="section reveal">
   <div class="container">
-    <h2 class="section-title">Our Services</h2>
+    <h2 class="section-title" data-i18n="service.title">Our Services</h2>
     <div class="service-grid">
       <!-- Air Transportation -->
       <div class="service-card">
         <img src="images/icons/air.jpg" alt="Air Transportation">
         <div>
-          <h3>Air Transportation</h3>
-          <p>We handle all types of air freight, including consolidated shipment and door-to-door delivery. We offer multimodal transport combining air and land transportation. We provide pickup, delivery, customs declaration, clearance and warehousing agency services, as well as one-stop shipping for documents, samples and small parcels.</p>
+          <h3 data-i18n="service.air.title">Air Transportation</h3>
+          <p data-i18n="service.air.desc">We handle all types of air freight, including consolidated shipment and door-to-door delivery. We offer multimodal transport combining air and land transportation. We provide pickup, delivery, customs declaration, clearance and warehousing agency services, as well as one-stop shipping for documents, samples and small parcels.</p>
         </div>
       </div>
       <!-- Import & Export Customs Clearance -->
       <div class="service-card">
         <img src="images/icons/customs.jpg" alt="Import & Export Customs Clearance">
         <div>
-          <h3>Import &amp; Export Customs Clearance</h3>
-          <p>Backed by our group's extensive domestic and overseas agent network, we swiftly arrange cargo receiving, booking space and customs declaration for import &amp; export goods, fix sailing and flight schedules, and update shipment status to clients in real time. After cargo arrival, we provide full follow-up services including document exchange &amp; pickup, customs clearance, commodity inspection and door-to-door delivery.</p>
+          <h3 data-i18n="service.customs.title">Import &amp; Export Customs Clearance</h3>
+          <p data-i18n="service.customs.desc">Backed by our group's extensive domestic and overseas agent network, we swiftly arrange cargo receiving, booking space and customs declaration for import &amp; export goods, fix sailing and flight schedules, and update shipment status to clients in real time. After cargo arrival, we provide full follow-up services including document exchange &amp; pickup, customs clearance, commodity inspection and door-to-door delivery.</p>
         </div>
       </div>
       <!-- Sea Transportation -->
       <div class="service-card">
         <img src="images/icons/sea.jpg" alt="Sea Transportation">
         <div>
-          <h3>Sea Transportation</h3>
-          <p>Whatever logistics service you need, just turn to us. We uphold the philosophy of "Strive endlessly, pursue excellence". Our journey of progress never ends. Our team cooperates wholeheartedly and perseveres to deliver premium sea freight services for clients worldwide.</p>
+          <h3 data-i18n="service.sea.title">Sea Transportation</h3>
+          <p data-i18n="service.sea.desc">Whatever logistics service you need, just turn to us. We uphold the philosophy of "Strive endlessly, pursue excellence". Our journey of progress never ends. Our team cooperates wholeheartedly and perseveres to deliver premium sea freight services for clients worldwide.</p>
         </div>
       </div>
       <!-- International Express -->
       <div class="service-card">
         <img src="images/icons/express.jpg" alt="International Express Delivery">
         <div>
-          <h3>International Express</h3>
-          <p>We cooperate with four major international couriers: DHL, TNT, FedEx and UPS. Our service covers 220 countries and regions, reaching over 130,000 destinations. Clients may select delivery channels, timetables, special cargo types and freight budgets as needed to ensure efficient shipment.</p>
+          <h3 data-i18n="service.express.title">International Express</h3>
+          <p data-i18n="service.express.desc">We cooperate with four major international couriers: DHL, TNT, FedEx and UPS. Our service covers 220 countries and regions, reaching over 130,000 destinations. Clients may select delivery channels, timetables, special cargo types and freight budgets as needed to ensure efficient shipment.</p>
         </div>
       </div>
     </div>
@@ -81,43 +85,56 @@
   <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="26" cy="26" r="25" fill="#fff8f0" stroke="#9b7356" stroke-width="1.5"/><text x="26" y="33" text-anchor="middle" font-size="22">&#129418;</text></svg>
 </div>
 
+<!-- Search Results Overlay -->
+<div id="searchOverlay" class="search-overlay" style="display:none">
+  <div class="search-overlay-inner">
+    <div class="search-overlay-header">
+      <span data-i18n="search.results">Search Results</span>
+      <button onclick="closeSearch()" class="search-close">&times;</button>
+    </div>
+    <div id="searchResultsBody" class="search-results-body"></div>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-col">
-      <h4>GREENLINE LOGISTICS</h4>
-      <p>Professional international freight forwarding and integrated logistics services.</p>
+      <h4 data-i18n="logo">GREENLINE LOGISTICS</h4>
+      <p data-i18n="footer.company">Professional international freight forwarding and integrated logistics services.</p>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
+      <h4 data-i18n="footer.contact">Contact</h4>
       <p>Tel: +86 18924154000</p>
       <p>Email: info@greenlineint.com</p>
       <p>Email: shipping@greenlineint.com</p>
     </div>
     <div class="footer-col">
-      <h4>Address</h4>
+      <h4 data-i18n="footer.address">Address</h4>
       <p>Room 711, 7th Floor<br>Golden Eagle Building<br>No.316 Huanshi Middle Road<br>Yuexiu District, Guangzhou</p>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2026 GREENLINE LOGISTICS — All rights reserved.</div>
+  <div class="footer-bottom" data-i18n="footer.copyright.short">&copy; 2026 GREENLINE LOGISTICS — All rights reserved.</div>
 </footer>
 
 <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">&#9650;</button>
 
 <script>
+/* Real On-Page Search */
 (function(){
-  var reveals = document.querySelectorAll('.reveal');
-  if(!reveals.length) return;
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){ if(entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: .12 });
-  reveals.forEach(function(el){ observer.observe(el); });
+  var i=document.getElementById('siteSearch'),b=document.getElementById('searchBtnNav');if(!i||!b)return;
+  function ds(){var q=(i.value||'').trim().toLowerCase();if(!q){closeSearch();return;}
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentElement;if(!p)return NodeFilter.FILTER_REJECT;if(/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName))return NodeFilter.FILTER_REJECT;if(p.closest('nav,.nav,.footer,.header,.topbar,.search-overlay,.back-top,.mascot'))return NodeFilter.FILTER_REJECT;if(n.textContent.trim().length<2)return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}});
+    var m=[],n;while(n=w.nextNode()){if(n.textContent.trim().toLowerCase().indexOf(q)!==-1){var e=n.parentElement.closest('section,[class*="card"],[class*="col"],.text-block,h1,h2,h3,p')||n.parentElement;if(m.indexOf(e)===-1)m.push(e);}}
+    sr(q,m);}
+  function sr(q,els){var o=document.getElementById('searchOverlay'),bd=document.getElementById('searchResultsBody');o.style.display='flex';if(!els.length){bd.innerHTML='<div class="search-empty">'+(I18N.curLang()==='zh'?'未找到匹配内容。':'No matching content found.')+'</div>';return;}var h='';els.slice(0,20).forEach(function(el){var t=el.textContent.replace(/\s+/g,' ').trim();if(t.length>200)t=t.substring(0,200)+'...';var re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');h+='<div class="search-result-item">'+t.replace(re,'<mark>$1</mark>')+'</div>';});bd.innerHTML=h;}
+  window.closeSearch=function(){document.getElementById('searchOverlay').style.display='none';};
+  b.addEventListener('click',ds);i.addEventListener('keydown',function(e){if(e.key==='Enter')ds();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSearch();});
 })();
-(function(){
-  var btn = document.querySelector('.back-top');
-  if(!btn) return;
-  window.addEventListener('scroll', function(){ if(window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }, { passive: true });
-})();
+/* Scroll Reveal + Back Top */
+(function(){var r=document.querySelectorAll('.reveal');if(!r.length)return;var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.12});r.forEach(function(el){o.observe(el);});})();
+(function(){var bt=document.querySelector('.back-top');if(!bt)return;window.addEventListener('scroll',function(){if(window.scrollY>400)bt.classList.add('visible');else bt.classList.remove('visible');},{passive:true});})();
 </script>
 
 </body>

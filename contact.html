@@ -5,27 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us — GREENLINE LOGISTICS</title>
 <meta name="description" content="Contact GREENLINE LOGISTICS for international freight forwarding inquiries. Phone, email, and office address in Guangzhou, China.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%235c3d2a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-weight='bold' fill='white'>GL</text></svg>">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="style.css">
+<script src="i18n.js"></script>
 </head>
 <body>
 
-<div class="topbar"><span class="lang-switch">中文 / English</span></div>
+<div class="topbar"><span class="lang-switch">English</span></div>
 
 <header class="header">
   <div class="header-inner">
     <button class="menu-toggle" onclick="document.querySelector('.nav').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="logo">GREENLINE LOGISTICS</div>
+    <div class="logo" data-i18n="logo">GREENLINE LOGISTICS</div>
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="service-zones.html">Service Zones</a>
-      <a href="service.html">Service</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html" class="active">Contact Us</a>
-      <a href="index.html#track" class="nav-track">Track Order / 货物追踪</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="service-zones.html" data-i18n="nav.zones">Service Zones</a>
+      <a href="service.html" data-i18n="nav.service">Service</a>
+      <a href="about.html" data-i18n="nav.about">About Us</a>
+      <a href="contact.html" class="active" data-i18n="nav.contact">Contact Us</a>
+      <a href="index.html#track" class="nav-track" data-i18n="nav.track">Track Order</a>
     </nav>
     <div class="nav-right">
-      <div class="search-box"><input type="text" placeholder="Search..."><button>&#128269;</button></div>
+      <div class="search-box">
+        <input type="text" id="siteSearch" data-i18n-ph="search.ph" placeholder="Search...">
+        <button type="button" id="searchBtnNav" title="Search this page">&#128269;</button>
+      </div>
     </div>
   </div>
 </header>
@@ -34,8 +38,8 @@
 <section class="full-banner">
   <img src="images/banner-highway.png" alt="Professional Transportation & Logistics — Highway">
   <div class="banner-text">
-    <h2>Professional Transportation &amp; Logistics</h2>
-    <p>Smooth Shipping for You All the Way</p>
+    <h2 data-i18n="home.banner.title">Professional Transportation &amp; Logistics</h2>
+    <p data-i18n="home.banner.sub">Smooth Shipping for You All the Way</p>
   </div>
 </section>
 
@@ -44,8 +48,8 @@
   <div class="container">
 
     <!-- Company Heading -->
-    <h2 style="color:var(--text-primary);font-size:30px;font-weight:800;margin-bottom:8px;text-align:center;letter-spacing:1px">GREENLINE LOGISTICS</h2>
-    <p style="text-align:center;color:var(--text-muted);font-size:14.5px;margin-bottom:36px;letter-spacing:.5px">International Freight Forwarding &amp; Integrated Logistics Solutions</p>
+    <h2 style="color:var(--text-primary);font-size:30px;font-weight:800;margin-bottom:8px;text-align:center;letter-spacing:1px" data-i18n="contact.heading">GREENLINE LOGISTICS</h2>
+    <p style="text-align:center;color:var(--text-muted);font-size:14.5px;margin-bottom:36px;letter-spacing:.5px" data-i18n="contact.sub">International Freight Forwarding &amp; Integrated Logistics Solutions</p>
 
     <!-- Contact Details Card -->
     <div style="max-width:660px;margin:0 auto;background:linear-gradient(145deg,var(--surface-card),var(--surface-dark));border-radius:var(--radius-xl);padding:40px 44px;border:1px solid var(--border-subtle);box-shadow:var(--shadow-lg)">
@@ -53,7 +57,7 @@
       <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--border-subtle)">
         <div style="width:42px;height:42px;border-radius:50%;background:rgba(212,168,83,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px">&#128222;</div>
         <div>
-          <div style="font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-weight:600">Phone / 电话</div>
+          <div style="font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-weight:600" data-i18n="contact.phone.label">Phone / 电话</div>
           <div style="font-size:19px;color:var(--text-primary);font-weight:700;letter-spacing:.5px">+86 18924154000</div>
         </div>
       </div>
@@ -61,7 +65,7 @@
       <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--border-subtle)">
         <div style="width:42px;height:42px;border-radius:50%;background:rgba(59,130,246,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px">&#9993;</div>
         <div>
-          <div style="font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-weight:600">Email / 邮箱</div>
+          <div style="font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-weight:600" data-i18n="contact.email.label">Email / 邮箱</div>
           <div style="font-size:15px;color:var(--text-secondary)"><a href="mailto:info@greenlineint.com">info@greenlineint.com</a></div>
           <div style="font-size:15px;color:var(--text-secondary);margin-top:3px"><a href="mailto:shipping@greenlineint.com">shipping@greenlineint.com</a></div>
         </div>
@@ -70,7 +74,7 @@
       <div style="display:flex;align-items:flex-start;gap:16px">
         <div style="width:42px;height:42px;border-radius:50%;background:rgba(52,211,153,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px">&#128205;</div>
         <div>
-          <div style="font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-weight:600">Address / 地址</div>
+          <div style="font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-weight:600" data-i18n="contact.addr.label">Address / 地址</div>
           <div style="font-size:14.5px;color:var(--text-secondary);line-height:1.7">Room 711, 7th Floor, Golden Eagle Building<br>No.316 Huanshi Middle Road<br>Yuexiu District, Guangzhou City, China<br>广州越秀区环市中路金鹰大厦711房7楼</div>
         </div>
       </div>
@@ -84,43 +88,56 @@
   <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="26" cy="26" r="25" fill="#fff8f0" stroke="#9b7356" stroke-width="1.5"/><text x="26" y="33" text-anchor="middle" font-size="22">&#129418;</text></svg>
 </div>
 
+<!-- Search Results Overlay -->
+<div id="searchOverlay" class="search-overlay" style="display:none">
+  <div class="search-overlay-inner">
+    <div class="search-overlay-header">
+      <span data-i18n="search.results">Search Results</span>
+      <button onclick="closeSearch()" class="search-close">&times;</button>
+    </div>
+    <div id="searchResultsBody" class="search-results-body"></div>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-col">
-      <h4>GREENLINE LOGISTICS</h4>
-      <p>Professional international freight forwarding and integrated logistics services.</p>
+      <h4 data-i18n="logo">GREENLINE LOGISTICS</h4>
+      <p data-i18n="footer.company">Professional international freight forwarding and integrated logistics services.</p>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
+      <h4 data-i18n="footer.contact">Contact</h4>
       <p>Tel: +86 18924154000</p>
       <p>Email: info@greenlineint.com</p>
       <p>Email: shipping@greenlineint.com</p>
     </div>
     <div class="footer-col">
-      <h4>Address</h4>
+      <h4 data-i18n="footer.address">Address</h4>
       <p>Room 711, 7th Floor<br>Golden Eagle Building<br>No.316 Huanshi Middle Road<br>Yuexiu District, Guangzhou</p>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2026 GREENLINE LOGISTICS — All rights reserved.</div>
+  <div class="footer-bottom" data-i18n="footer.copyright.short">&copy; 2026 GREENLINE LOGISTICS — All rights reserved.</div>
 </footer>
 
 <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">&#9650;</button>
 
 <script>
+/* Real On-Page Search */
 (function(){
-  var reveals = document.querySelectorAll('.reveal');
-  if(!reveals.length) return;
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){ if(entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: .12 });
-  reveals.forEach(function(el){ observer.observe(el); });
+  var i=document.getElementById('siteSearch'),b=document.getElementById('searchBtnNav');if(!i||!b)return;
+  function ds(){var q=(i.value||'').trim().toLowerCase();if(!q){closeSearch();return;}
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentElement;if(!p)return NodeFilter.FILTER_REJECT;if(/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName))return NodeFilter.FILTER_REJECT;if(p.closest('nav,.nav,.footer,.header,.topbar,.search-overlay,.back-top,.mascot'))return NodeFilter.FILTER_REJECT;if(n.textContent.trim().length<2)return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}});
+    var m=[],n;while(n=w.nextNode()){if(n.textContent.trim().toLowerCase().indexOf(q)!==-1){var e=n.parentElement.closest('section,[class*="card"],[class*="col"],.text-block,h1,h2,h3,p')||n.parentElement;if(m.indexOf(e)===-1)m.push(e);}}
+    sr(q,m);}
+  function sr(q,els){var o=document.getElementById('searchOverlay'),bd=document.getElementById('searchResultsBody');o.style.display='flex';if(!els.length){bd.innerHTML='<div class="search-empty">'+(I18N.curLang()==='zh'?'未找到匹配内容。':'No matching content found.')+'</div>';return;}var h='';els.slice(0,20).forEach(function(el){var t=el.textContent.replace(/\s+/g,' ').trim();if(t.length>200)t=t.substring(0,200)+'...';var re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');h+='<div class="search-result-item">'+t.replace(re,'<mark>$1</mark>')+'</div>';});bd.innerHTML=h;}
+  window.closeSearch=function(){document.getElementById('searchOverlay').style.display='none';};
+  b.addEventListener('click',ds);i.addEventListener('keydown',function(e){if(e.key==='Enter')ds();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSearch();});
 })();
-(function(){
-  var btn = document.querySelector('.back-top');
-  if(!btn) return;
-  window.addEventListener('scroll', function(){ if(window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }, { passive: true });
-})();
+/* Scroll Reveal + Back Top */
+(function(){var r=document.querySelectorAll('.reveal');if(!r.length)return;var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.12});r.forEach(function(el){o.observe(el);});})();
+(function(){var bt=document.querySelector('.back-top');if(!bt)return;window.addEventListener('scroll',function(){if(window.scrollY>400)bt.classList.add('visible');else bt.classList.remove('visible');},{passive:true});})();
 </script>
 
 </body>
