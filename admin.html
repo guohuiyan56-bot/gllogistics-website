@@ -63,11 +63,27 @@
         <input id="fDate" type="text" placeholder="2026-07-27" autocomplete="off">
       </div>
     </div>
-    <label>信息 / Info（客户看到的内容，可多行）</label>
-    <textarea id="fInfo" placeholder="例如：您的货物已于 ... 在深圳盐田港装船，预计 ... 抵达目的港 ..."></textarea>
-    <label>物流轨迹 / Timeline（时间轴，可选）</label>
-    <textarea id="fEvents" placeholder="每行一个节点，用 | 分隔：&#10;日期 | 状态 | 地点 | 备注&#10;例：2026-07-25 | 已揽收 | 广州 | 仓库收货&#10;2026-07-26 | 已装船 | 深圳盐田港 | COSCO SHIPPING LINE"></textarea>
-    <div class="tip">留空则客户查询时只显示上方「信息」文字；填写后将以链条式时间轴展示每一次物流节点（地点、备注可省略，用 | 分隔）。</div>
+    <div class="row2">
+      <div>
+        <label>信息（中文）</label>
+        <textarea id="fInfoZh" placeholder="例如：您的货物已于 ... 在深圳盐田港装船，预计 ... 抵达目的港 ..."></textarea>
+      </div>
+      <div>
+        <label>Info (English)</label>
+        <textarea id="fInfoEn" placeholder="e.g. Your cargo was loaded at Yantian Port, Shenzhen, ETA ..."></textarea>
+      </div>
+    </div>
+    <div class="row2">
+      <div>
+        <label>物流轨迹（中文，可选）</label>
+        <textarea id="fTlZh" placeholder="每行一个节点，用 | 分隔：&#10;日期 | 状态 | 地点 | 备注&#10;2026-07-25 | 已揽收 | 广州 | 仓库收货"></textarea>
+      </div>
+      <div>
+        <label>Tracking Timeline (English, optional)</label>
+        <textarea id="fTlEn" placeholder="one node per line, separated by | :&#10;date | status | location | note&#10;2026-07-25 | Picked up | Guangzhou | Received"></textarea>
+      </div>
+    </div>
+    <div class="tip">物流轨迹中、英文需<strong>按行一一对应</strong>（第 1 行中文 ↔ 第 1 行英文）。留空则客户查询只显示「信息」文字；填写后将以链条式时间轴展示每一次物流节点（地点、备注可省略，用 | 分隔）。</div>
     <div class="btns">
       <button id="saveBtn">保存条目</button>
       <button class="sec" id="cancelBtn" style="display:none">取消编辑</button>
@@ -124,20 +140,38 @@
   var editingIndex = -1;
 
   function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
-  function parseEvents(text){
-    return (text||'').split('\n').map(function(l){return l.trim();}).filter(function(l){return l;}).map(function(line){
-      var p = line.split('|').map(function(s){return s.trim();});
+  function parseEvents(zhText, enText){
+    var zhLines = (zhText||'').split('\n').map(function(l){return l.trim();});
+    var enLines = (enText||'').split('\n').map(function(l){return l.trim();});
+    var events = [];
+    for(var i=0;i<zhLines.length;i++){
+      var zh = zhLines[i];
+      var en = enLines[i] || '';
+      if(!zh) continue; // 中文行空则跳过（中文/英文按行一一对应）
+      var zp = zh.split('|').map(function(s){return s.trim();});
+      var ep = en.split('|').map(function(s){return s.trim();});
       var ev = {};
-      if(p[0]) ev.date = p[0];
-      if(p[1]) ev.status = p[1];
-      if(p[2]) ev.location = p[2];
-      if(p[3]) ev.note = p[3];
-      return ev;
-    }).filter(function(ev){ return ev.date || ev.status || ev.note || ev.location; });
+      if(zp[0]) ev.date = zp[0];
+      ev.statusZh   = zp[1] || '';
+      ev.statusEn   = ep[1] || '';
+      ev.locationZh = zp[2] || '';
+      ev.locationEn = ep[2] || '';
+      ev.noteZh     = zp[3] || '';
+      ev.noteEn     = ep[3] || '';
+      events.push(ev);
+    }
+    return events.filter(function(ev){
+      return ev.date || ev.statusZh || ev.noteZh || ev.locationZh || ev.statusEn || ev.noteEn || ev.locationEn;
+    });
   }
-  function eventsToText(events){
+  function eventsToTextZh(events){
     return (events||[]).map(function(ev){
-      return [ev.date||'', ev.status||'', ev.location||'', ev.note||''].join(' | ');
+      return [ev.date||'', ev.statusZh||'', ev.locationZh||'', ev.noteZh||''].join(' | ');
+    }).join('\n');
+  }
+  function eventsToTextEn(events){
+    return (events||[]).map(function(ev){
+      return [ev.date||'', ev.statusEn||'', ev.locationEn||'', ev.noteEn||''].join(' | ');
     }).join('\n');
   }
   function $(id){ return document.getElementById(id); }
@@ -169,7 +203,7 @@
     tb.innerHTML = '';
     entries.forEach(function(e, i){
       var tr = document.createElement('tr');
-      var infoText = (e.info || '').replace(/</g,'&lt;');
+      var infoText = ((e.infoZh || e.info || '')).replace(/</g,'&lt;');
       var tlCount = (e.events && e.events.length) ? '<div class="tl-count">⛓ 轨迹 '+e.events.length+' 个节点</div>' : '';
       tr.innerHTML =
         '<td><code>'+esc(e.code)+'</code></td>'+
@@ -192,9 +226,11 @@
         var e = entries[i];
         editingIndex = i;
         $('fCode').value = e.code || '';
-        $('fInfo').value = e.info || '';
+        $('fInfoZh').value = e.infoZh || e.info || '';
+        $('fInfoEn').value = e.infoEn || '';
         $('fDate').value = e.updated || '';
-        $('fEvents').value = eventsToText(e.events||[]);
+        $('fTlZh').value = eventsToTextZh(e.events||[]);
+        $('fTlEn').value = eventsToTextEn(e.events||[]);
         $('formTitle').textContent = '✏️ 编辑条目（'+e.code+'）';
         $('saveBtn').textContent = '更新条目';
         $('cancelBtn').style.display = '';
@@ -205,7 +241,7 @@
 
   function resetForm(){
     editingIndex = -1;
-    $('fCode').value=''; $('fInfo').value=''; $('fDate').value=''; $('fEvents').value='';
+    $('fCode').value=''; $('fInfoZh').value=''; $('fInfoEn').value=''; $('fDate').value=''; $('fTlZh').value=''; $('fTlEn').value='';
     $('formTitle').textContent='➕ 新增追踪条目';
     $('saveBtn').textContent='保存条目';
     $('cancelBtn').style.display='none';
@@ -213,11 +249,12 @@
 
   $('saveBtn').addEventListener('click', function(){
     var code = $('fCode').value.trim();
-    var info = $('fInfo').value.trim();
+    var infoZh = $('fInfoZh').value.trim();
+    var infoEn = $('fInfoEn').value.trim();
     var date = $('fDate').value.trim();
-    if(!code || !info){ alert('请填写单号和信息'); return; }
-    var rec = { code: code, info: info, updated: date };
-    var events = parseEvents($('fEvents').value);
+    if(!code || !infoZh){ alert('请填写单号和信息（中文）'); return; }
+    var rec = { code: code, infoZh: infoZh, infoEn: infoEn, updated: date };
+    var events = parseEvents($('fTlZh').value, $('fTlEn').value);
     if(events.length) rec.events = events;
     if(editingIndex >= 0){
       entries[editingIndex] = rec;

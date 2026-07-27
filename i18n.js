@@ -15,7 +15,7 @@ var I18N = (function () {
     'nav.about':       { zh: '关于我们',       en: 'About Us' },
     'nav.contact':     { zh: '联系我们',       en: 'Contact Us' },
     'nav.track':       { zh: '货物追踪',       en: 'Track Order' },
-    'logo':            { zh: '格林物流',       en: 'GREENLINE LOGISTICS' },
+    'logo':            { zh: '本润物流',       en: 'BENRUN LOGISTICS' },
     'search.ph':       { zh: '搜索...',        en: 'Search...' },
     'search.results':  { zh: '搜索结果',        en: 'Search Results' },
 
@@ -72,19 +72,19 @@ var I18N = (function () {
     'about.cta':           { zh: '欢迎随时联系我们咨询！',     en: 'Feel free to contact us for inquiries!' },
 
     /* ---- Contact page ---- */
-    'contact.heading':     { zh: '格林物流',                 en: 'GREENLINE LOGISTICS' },
+    'contact.heading':     { zh: '本润物流',                 en: 'BENRUN LOGISTICS' },
     'contact.sub':         { zh: '国际货运代理与综合物流解决方案', en: 'International Freight Forwarding & Integrated Logistics Solutions' },
     'contact.phone.label': { zh: '电话',                     en: 'Phone' },
     'contact.email.label': { zh: '邮箱',                     en: 'Email' },
     'contact.addr.label':  { zh: '地址',                     en: 'Address' },
 
     /* ---- Footer ---- */
-    'footer.company':      { zh: '格林物流——专业的国际货运代理与综合物流服务。', en: 'Professional international freight forwarding and integrated logistics services.' },
+    'footer.company':      { zh: '本润物流——专业的国际货运代理与综合物流服务。', en: 'Professional international freight forwarding and integrated logistics services.' },
     'footer.serving':      { zh: '自成立以来服务大洋洲、中东及非洲客户。', en: 'Serving clients across Oceania, Middle East & Africa since establishment.' },
     'footer.contact':      { zh: '联系方式',                 en: 'Contact' },
     'footer.address':      { zh: '地址',                     en: 'Address' },
-    'footer.copyright':    { zh: '© 2026 格林物流——国际货运代理。保留所有权利。', en: '&copy; 2026 GREENLINE LOGISTICS — International Freight Forwarding. All rights reserved.' },
-    'footer.copyright.short': { zh: '© 2026 格林物流。保留所有权利。', en: '&copy; 2026 GREENLINE LOGISTICS — All rights reserved.' }
+    'footer.copyright':    { zh: '© 2026 本润物流——国际货运代理。保留所有权利。', en: '&copy; 2026 BENRUN LOGISTICS — International Freight Forwarding. All rights reserved.' },
+    'footer.copyright.short': { zh: '© 2026 本润物流。保留所有权利。', en: '&copy; 2026 BENRUN LOGISTICS — All rights reserved.' }
   };
 
   var curLang = localStorage.getItem('gl-lang') || 'en';
@@ -98,6 +98,8 @@ var I18N = (function () {
     // Update switcher button text
     var sw = document.querySelector('.lang-switch');
     if (sw) sw.textContent = lang === 'zh' ? '中文' : 'English';
+    // Broadcast so dynamic areas (e.g. tracking result) can re-render
+    try { window.dispatchEvent(new Event('gl-lang-change')); } catch (e) {}
   }
 
   function t(key) {

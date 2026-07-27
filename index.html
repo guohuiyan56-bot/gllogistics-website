@@ -3,25 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GREENLINE LOGISTICS — International Freight Forwarding & Logistics</title>
-<meta name="description" content="GREENLINE LOGISTICS — Professional international freight forwarding, ocean shipping, air freight, customs clearance, and door-to-door logistics solutions. Serving Oceania, Middle East & Africa.">
-<meta name="keywords" content="freight forwarding, logistics, ocean shipping, air freight, customs clearance, international shipping, cargo tracking, GREENLINE">
+<title>BENRUN LOGISTICS — International Freight Forwarding & Logistics</title>
+<meta name="description" content="BENRUN LOGISTICS — Professional international freight forwarding, ocean shipping, air freight, customs clearance, and door-to-door logistics solutions. Serving Oceania, Middle East & Africa.">
+<meta name="keywords" content="freight forwarding, logistics, ocean shipping, air freight, customs clearance, international shipping, cargo tracking, BENRUN">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="style.css">
 <script src="i18n.js"></script>
 </head>
 <body>
 
-<!-- Top Bar -->
-<div class="topbar">
-  <span class="lang-switch">English</span>
-</div>
-
 <!-- Header / Navigation -->
 <header class="header">
   <div class="header-inner">
     <button class="menu-toggle" onclick="document.querySelector('.nav').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="logo" data-i18n="logo">GREENLINE LOGISTICS</div>
+    <div class="logo" data-i18n="logo">BENRUN LOGISTICS</div>
     <nav class="nav">
       <a href="index.html" class="active" data-i18n="nav.home">Home</a>
       <a href="service-zones.html" data-i18n="nav.zones">Service Zones</a>
@@ -35,6 +30,7 @@
         <input type="text" id="siteSearch" data-i18n-ph="search.ph" placeholder="Search...">
         <button type="button" id="searchBtnNav" title="Search this page">&#128269;</button>
       </div>
+      <span class="lang-switch">English</span>
     </div>
   </div>
 </header>
@@ -140,7 +136,7 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-col">
-      <h4 data-i18n="logo">GREENLINE LOGISTICS</h4>
+      <h4 data-i18n="logo">BENRUN LOGISTICS</h4>
       <p data-i18n="footer.company">Professional international freight forwarding and integrated logistics services.</p>
       <p data-i18n="footer.serving">Serving clients across Oceania, Middle East &amp; Africa since establishment.</p>
     </div>
@@ -156,7 +152,7 @@
     </div>
   </div>
   <div class="footer-bottom" data-i18n="footer.copyright">
-    &copy; 2026 GREENLINE LOGISTICS — International Freight Forwarding. All rights reserved.
+    &copy; 2026 BENRUN LOGISTICS — International Freight Forwarding. All rights reserved.
   </div>
 </footer>
 
@@ -182,8 +178,10 @@ function search(){
   });
   if(found){
     document.getElementById('resCode').textContent = found.code;
-    document.getElementById('resInfo').textContent = found.info || '';
-    var events = (found.events||[]).filter(function(x){ return x && (x.status||x.date||x.note||x.location); });
+    var zh = I18N.curLang()==='zh';
+    document.getElementById('resInfo').textContent = (found['info'+(zh?'Zh':'En')] || found.info || '');
+    window.__lastTrackCode = code;
+    var events = (found.events||[]).filter(function(x){ return x && (x.status||x.statusZh||x.statusEn||x.date||x.note||x.noteZh||x.noteEn||x.location||x.locationZh||x.locationEn); });
     if(events.length && tl) renderTimeline(events);
     document.getElementById('resUpdated').textContent = (I18N.curLang()==='zh'?'更新时间：':'Updated: ') + (found.updated || '—');
     res.classList.add('show');
@@ -199,14 +197,21 @@ function renderTimeline(events){
   var tl = document.getElementById('resTimeline');
   if(!tl) return;
   var zh = I18N.curLang()==='zh';
+  function pick(ev, base){
+    var k = base + (zh ? 'Zh' : 'En');
+    return (ev[k] != null && ev[k] !== '') ? ev[k] : (ev[base] || '');
+  }
   var html = '<div class="tl-head">'+(zh?'🚚 物流轨迹':'🚚 Tracking Timeline')+'</div><ul class="tl-list">';
   events.slice().reverse().forEach(function(ev, i){
+    var status = pick(ev, 'status');
+    var location = pick(ev, 'location');
+    var note = pick(ev, 'note');
     html += '<li class="tl-item'+(i===0?' tl-now':'')+'"><span class="tl-dot"></span><div class="tl-body">';
     if(ev.date) html += '<div class="tl-date">'+esc(ev.date)+'</div>';
-    if(ev.status) html += '<div class="tl-status">'+esc(ev.status)+'</div>';
+    if(status) html += '<div class="tl-status">'+esc(status)+'</div>';
     var meta = [];
-    if(ev.location) meta.push((zh?'地点：':'Loc: ')+esc(ev.location));
-    if(ev.note) meta.push(esc(ev.note));
+    if(location) meta.push((zh?'地点：':'Loc: ')+esc(location));
+    if(note) meta.push(esc(note));
     if(meta.length) html += '<div class="tl-meta">'+meta.join(' &nbsp;·&nbsp; ')+'</div>';
     html += '</div></li>';
   });
@@ -216,6 +221,15 @@ function renderTimeline(events){
 document.getElementById('searchBtn').addEventListener('click', search);
 document.getElementById('codeInput').addEventListener('keydown', function(e){
   if(e.key === 'Enter') search();
+});
+
+/* Re-render the tracking result when the language is switched */
+window.addEventListener('gl-lang-change', function(){
+  if(window.__lastTrackCode){
+    var ci = document.getElementById('codeInput');
+    if(ci) ci.value = window.__lastTrackCode;
+    search();
+  }
 });
 
 /* ---- Real On-Page Search ---- */
