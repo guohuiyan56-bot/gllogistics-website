@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>货物查询 / Cargo Tracking — GREENLINE Logistics</title>
+<title>GREENLINE Logistics — 国际货运代理 · 货物查询</title>
 <link rel="icon" type="image/png" href="https://www.greenlineint.com/assets/logo.png?v=202607251754">
 <style>
   :root{
@@ -11,100 +11,209 @@
     --c-accent:#a9743b; --c-text:#3a2c1c; --c-muted:#9a8a78; --c-line:#e7dccb;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Segoe UI",-apple-system,"Microsoft YaHei",sans-serif;background:var(--c-bg);color:var(--c-text);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:32px 16px}
-  .lang{position:fixed;top:16px;right:16px}
-  .lang button{background:var(--c-card);border:1px solid var(--c-line);color:var(--c-brown);border-radius:20px;padding:6px 14px;cursor:pointer;font-size:13px}
-  .wrap{width:100%;max-width:680px;margin-top:24px}
-  .brand{text-align:center;font-size:22px;font-weight:700;color:var(--c-brown-d);letter-spacing:1px}
-  .brand span{color:var(--c-accent)}
-  h1{text-align:center;font-size:18px;font-weight:600;margin:10px 0 4px}
-  .sub{text-align:center;color:var(--c-muted);font-size:13px;margin-bottom:26px}
-  .box{background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;padding:22px;box-shadow:0 6px 24px rgba(122,82,48,.08)}
+  body{font-family:"Segoe UI",-apple-system,"Microsoft YaHei",sans-serif;background:var(--c-bg);color:var(--c-text);line-height:1.6}
+  a{color:var(--c-accent);text-decoration:none}
+  .nav{position:sticky;top:0;z-index:10;background:rgba(255,253,249,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--c-line);display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .nav .logo{font-weight:800;font-size:18px;color:var(--c-brown-d);letter-spacing:.5px}
+  .nav .logo span{color:var(--c-accent)}
+  .nav .links{display:flex;gap:22px;align-items:center}
+  .nav .links a{color:var(--c-text);font-size:14px}
+  .nav .links a:hover{color:var(--c-accent)}
+  .lang-btn{background:var(--c-card);border:1px solid var(--c-line);color:var(--c-brown);border-radius:20px;padding:5px 12px;cursor:pointer;font-size:12px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  /* Hero */
+  .hero{background:linear-gradient(135deg,#5c3d22,#7a5230);color:#fff;padding:64px 20px 56px;text-align:center}
+  .hero h1{font-size:34px;font-weight:800;letter-spacing:1px;margin-bottom:12px}
+  .hero p{font-size:16px;opacity:.92;max-width:640px;margin:0 auto}
+  .hero .tags{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .hero .tags span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:13px}
+  /* 查询框（站内原生） */
+  .track-band{max-width:720px;margin:-34px auto 0;background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(122,82,48,.12);position:relative;z-index:2}
+  .track-band h2{font-size:18px;color:var(--c-brown-d);text-align:center;margin-bottom:4px}
+  .track-band .sub{text-align:center;color:var(--c-muted);font-size:13px;margin-bottom:18px}
   .row{display:flex;gap:10px;flex-wrap:wrap}
-  .row input{flex:1;min-width:200px;padding:13px 14px;border:1px solid var(--c-line);border-radius:10px;font-size:15px;outline:none}
+  .row input{flex:1;min-width:220px;padding:14px 16px;border:1px solid var(--c-line);border-radius:10px;font-size:15px;outline:none}
   .row input:focus{border-color:var(--c-accent)}
-  .row button{background:var(--c-brown);color:#fff;border:none;border-radius:10px;padding:0 24px;font-size:15px;cursor:pointer;transition:.2s}
+  .row button{background:var(--c-brown);color:#fff;border:none;border-radius:10px;padding:0 28px;font-size:15px;cursor:pointer;transition:.2s}
   .row button:hover{background:var(--c-brown-d)}
   .hint{color:var(--c-muted);font-size:12px;margin-top:10px;text-align:center}
-  .result{margin-top:20px;display:none}
+  .result{margin-top:18px;display:none}
   .result.show{display:block;animation:fade .35s ease}
   @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   .res-code{font-size:13px;color:var(--c-muted);margin-bottom:8px}
   .res-code b{color:var(--c-brown-d);font-size:15px}
-  .res-info{background:var(--c-bg);border:1px solid var(--c-line);border-radius:12px;padding:18px;line-height:1.8;font-size:15px;white-space:pre-wrap;word-break:break-word}
+  .res-info{background:var(--c-bg);border:1px solid var(--c-line);border-radius:12px;padding:18px;font-size:15px;white-space:pre-wrap;word-break:break-word}
   .res-updated{margin-top:10px;font-size:12px;color:var(--c-muted);text-align:right}
-  .notfound{margin-top:20px;display:none;background:#fff4ec;border:1px solid #f0c9a8;color:#9a5a23;border-radius:12px;padding:16px;text-align:center;font-size:14px}
+  .notfound{margin-top:18px;display:none;background:#fff4ec;border:1px solid #f0c9a8;color:#9a5a23;border-radius:12px;padding:16px;text-align:center;font-size:14px}
   .notfound.show{display:block}
-  .admin-link{text-align:center;margin-top:22px;font-size:13px}
-  .admin-link a{color:var(--c-accent);text-decoration:none}
-  .admin-link a:hover{text-decoration:underline}
-  footer{margin-top:40px;font-size:12px;color:var(--c-muted);text-align:center}
-  /* 嵌入式模式：被 iframe 框进其他网站时使用 ?embed=1，隐藏外壳只留查询框 */
-  body.embed{padding:0;min-height:auto;background:transparent;align-items:stretch}
-  body.embed .wrap{margin-top:0;max-width:100%}
-  body.embed .brand,body.embed .admin-link,body.embed footer{display:none}
-  body.embed .sub{margin-bottom:14px}
+  /* 服务 */
+  .section{padding:54px 0}
+  .section h3{font-size:24px;color:var(--c-brown-d);text-align:center;margin-bottom:8px}
+  .section .lead{text-align:center;color:var(--c-muted);margin-bottom:32px;font-size:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .card{background:var(--c-card);border:1px solid var(--c-line);border-radius:14px;padding:22px}
+  .card .ico{font-size:26px;margin-bottom:8px}
+  .card h4{color:var(--c-brown-d);font-size:17px;margin-bottom:6px}
+  .card p{color:var(--c-muted);font-size:14px}
+  /* 关于/联系 */
+  .about{background:var(--c-card);border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line)}
+  .about .grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:54px 0}
+  .about h3{font-size:22px;color:var(--c-brown-d);margin-bottom:12px}
+  .about p{color:var(--c-text);font-size:15px;margin-bottom:10px}
+  .about .contact li{list-style:none;padding:6px 0;border-bottom:1px dashed var(--c-line);font-size:14px;color:var(--c-text)}
+  footer{text-align:center;padding:26px 20px;font-size:12px;color:var(--c-muted)}
+  @media(max-width:680px){.nav .links{gap:14px}.hero h1{font-size:26px}.about .grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-  <div class="lang"><button id="langBtn">EN</button></div>
-  <div class="wrap">
-    <div class="brand">GREEN<span>LINE</span> 物流</div>
-    <h1 id="title">货物查询</h1>
-    <div class="sub" id="subtitle">请输入您的单号，查询货物运输信息</div>
+  <nav class="nav">
+    <div class="logo">GREEN<span>LINE</span> Logistics</div>
+    <div class="links">
+      <a href="#home" id="navHome">首页</a>
+      <a href="#services" id="navServices">服务</a>
+      <a href="#about" id="navAbout">关于我们</a>
+      <button class="lang-btn" id="langBtn">EN</button>
+    </div>
+  </nav>
 
-    <div class="box">
+  <header class="hero" id="home">
+    <h1 id="heroTitle">GREENLINE Logistics</h1>
+    <p id="heroSub">专业国际货运代理 · 海运 / 空运 / 门到门一站式物流解决方案</p>
+    <div class="tags">
+      <span id="tag1">🌊 国际海运</span>
+      <span id="tag2">✈️ 国际空运</span>
+      <span id="tag3">🚚 门到门</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="track-band">
+      <h2 id="trackTitle">货物查询</h2>
+      <div class="sub" id="trackSub">请输入您的单号，实时查看货物运输信息</div>
       <div class="row">
         <input id="codeInput" type="text" autocomplete="off" placeholder="输入单号 / Enter tracking no.">
         <button id="searchBtn">查询</button>
       </div>
-      <div class="hint" id="hint">支持订单号 / 提单号 / 箱号，由我司后台人员维护更新</div>
+      <div class="hint" id="trackHint">支持订单号 / 提单号 / 箱号，由我司后台人员维护更新</div>
 
       <div class="result" id="result">
         <div class="res-code">单号 / CODE：<b id="resCode"></b></div>
         <div class="res-info" id="resInfo"></div>
         <div class="res-updated" id="resUpdated"></div>
       </div>
-
       <div class="notfound" id="notfound"></div>
-    </div>
-
-    <div class="admin-link"><a href="admin.html" id="adminLink">后台管理 / Admin</a></div>
-    <footer>GREENLINE Logistics · 货物查询系统</footer>
+    </section>
   </div>
 
+  <section class="section" id="services">
+    <div class="wrap">
+      <h3 id="svcTitle">我们的服务</h3>
+      <div class="lead" id="svcLead">覆盖全球主要港口与空港，提供稳定、透明的跨境物流服务</div>
+      <div class="grid">
+        <div class="card"><div class="ico">🌊</div><h4 id="svc1t">国际海运</h4><p id="svc1d">整柜(FCL)与拼箱(LCL)海运，覆盖全球主要港口，价格透明、舱位稳定。</p></div>
+        <div class="card"><div class="ico">✈️</div><h4 id="svc2t">国际空运</h4><p id="svc2d">紧急货件空运专线，快速清关，实时航班追踪，保障时效。</p></div>
+        <div class="card"><div class="ico">🚚</div><h4 id="svc3t">门到门</h4><p id="svc3d">揽收、报关、运输、派送全流程托管，一站式交付到门。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap grid2">
+      <div>
+        <h3 id="abtTitle">关于 GREENLINE Logistics</h3>
+        <p id="abtP1">我们专注于为外贸企业与制造工厂提供专业国际物流解决方案，依托成熟的海运、空运与陆地配送网络，让每一票货物安全、准时抵达。</p>
+        <p id="abtP2">从揽收、报关到目的港清关派送，全程可视化跟单，专业团队一对一服务，让您随时掌握货物动态。</p>
+      </div>
+      <div>
+        <h3 id="ctTitle">联系我们</h3>
+        <ul class="contact">
+          <li id="ct1">📧 邮箱：service@gllogistics.net</li>
+          <li id="ct2">📞 电话：+86 待补充</li>
+          <li id="ct3">🌐 网站：gllogistics.net</li>
+          <li id="ct4">🕒 服务时间：周一至周六 9:00–18:00</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>GREENLINE Logistics · 国际货运代理 · 货物查询系统</footer>
+
 <script>
-  // 嵌入式模式：URL 带 ?embed=1 时隐藏外壳，仅显示查询框（用于 iframe 内嵌到其他网站）
-  if(new URLSearchParams(location.search).get('embed') === '1'){
-    document.body.classList.add('embed');
-  }
   var lang = 'cn';
   var I18N = {
-    cn:{ title:'货物查询', sub:'请输入您的单号，查询货物运输信息',
-         ph:'输入单号 / Enter tracking no.', btn:'查询',
-         hint:'支持订单号 / 提单号 / 箱号，由我司后台人员维护更新',
-         nf:'未找到该单号的信息，请核对单号或联系我司客服。',
-         updated:'更新于', admin:'后台管理 / Admin', langBtn:'EN' },
-    en:{ title:'Cargo Tracking', sub:'Enter your tracking number to view shipment status',
-         ph:'Enter tracking no.', btn:'Track',
-         hint:'Order / B/L / Container no. maintained by our back-office team',
-         nf:'No information found for this number. Please verify or contact our support.',
-         updated:'Updated', admin:'Admin', langBtn:'中文' }
+    cn:{
+      navHome:'首页', navServices:'服务', navAbout:'关于我们', langBtn:'EN',
+      heroTitle:'GREENLINE Logistics',
+      heroSub:'专业国际货运代理 · 海运 / 空运 / 门到门一站式物流解决方案',
+      tag1:'🌊 国际海运', tag2:'✈️ 国际空运', tag3:'🚚 门到门',
+      trackTitle:'货物查询', trackSub:'请输入您的单号，实时查看货物运输信息',
+      ph:'输入单号 / Enter tracking no.', btn:'查询',
+      trackHint:'支持订单号 / 提单号 / 箱号，由我司后台人员维护更新',
+      nf:'未找到该单号的信息，请核对单号或联系我司客服。',
+      updated:'更新于',
+      svcTitle:'我们的服务', svcLead:'覆盖全球主要港口与空港，提供稳定、透明的跨境物流服务',
+      svc1t:'国际海运', svc1d:'整柜(FCL)与拼箱(LCL)海运，覆盖全球主要港口，价格透明、舱位稳定。',
+      svc2t:'国际空运', svc2d:'紧急货件空运专线，快速清关，实时航班追踪，保障时效。',
+      svc3t:'门到门', svc3d:'揽收、报关、运输、派送全流程托管，一站式交付到门。',
+      abtTitle:'关于 GREENLINE Logistics',
+      abtP1:'我们专注于为外贸企业与制造工厂提供专业国际物流解决方案，依托成熟的海运、空运与陆地配送网络，让每一票货物安全、准时抵达。',
+      abtP2:'从揽收、报关到目的港清关派送，全程可视化跟单，专业团队一对一服务，让您随时掌握货物动态。',
+      ctTitle:'联系我们',
+      ct1:'📧 邮箱：service@gllogistics.net', ct2:'📞 电话：+86 待补充',
+      ct3:'🌐 网站：gllogistics.net', ct4:'🕒 服务时间：周一至周六 9:00–18:00'
+    },
+    en:{
+      navHome:'Home', navServices:'Services', navAbout:'About', langBtn:'中文',
+      heroTitle:'GREENLINE Logistics',
+      heroSub:'Professional international freight forwarding · Sea / Air / Door-to-Door logistics',
+      tag1:'🌊 Ocean Freight', tag2:'✈️ Air Freight', tag3:'🚚 Door-to-Door',
+      trackTitle:'Cargo Tracking', trackSub:'Enter your tracking number to view shipment status',
+      ph:'Enter tracking no.', btn:'Track',
+      trackHint:'Order / B/L / Container no. maintained by our back-office team',
+      nf:'No information found for this number. Please verify or contact our support.',
+      updated:'Updated',
+      svcTitle:'Our Services', svcLead:'Covering major ports and airports worldwide with reliable, transparent cross-border logistics',
+      svc1t:'Ocean Freight', svc1d:'FCL & LCL ocean freight to major global ports, transparent pricing and stable space.',
+      svc2t:'Air Freight', svc2d:'Express air lines for urgent cargo, fast customs clearance and real-time flight tracking.',
+      svc3t:'Door-to-Door', svc3d:'End-to-end handling: pickup, customs, transport and delivery to your door.',
+      abtTitle:'About GREENLINE Logistics',
+      abtP1:'We provide professional international logistics for traders and manufacturers, moving every shipment safely and on time via our ocean, air and ground network.',
+      abtP2:'From pickup and customs to destination delivery, we offer full visibility and dedicated one-to-one support.',
+      ctTitle:'Contact Us',
+      ct1:'📧 Email: service@gllogistics.net', ct2:'📞 Tel: +86 TBD',
+      ct3:'🌐 Web: gllogistics.net', ct4:'🕒 Hours: Mon–Sat 9:00–18:00'
+    }
   };
   function applyLang(){
     var t = I18N[lang];
-    document.getElementById('title').textContent = t.title;
-    document.getElementById('subtitle').textContent = t.sub;
-    document.getElementById('codeInput').placeholder = t.ph;
-    document.getElementById('searchBtn').textContent = t.btn;
-    document.getElementById('hint').textContent = t.hint;
-    document.getElementById('adminLink').textContent = t.admin;
-    document.getElementById('langBtn').textContent = t.langBtn;
-    document.documentElement.lang = (lang==='cn')?'zh-CN':'en';
+    document.getElementById('navHome').textContent=t.navHome;
+    document.getElementById('navServices').textContent=t.navServices;
+    document.getElementById('navAbout').textContent=t.navAbout;
+    document.getElementById('langBtn').textContent=t.langBtn;
+    document.getElementById('heroTitle').textContent=t.heroTitle;
+    document.getElementById('heroSub').textContent=t.heroSub;
+    document.getElementById('tag1').textContent=t.tag1;
+    document.getElementById('tag2').textContent=t.tag2;
+    document.getElementById('tag3').textContent=t.tag3;
+    document.getElementById('trackTitle').textContent=t.trackTitle;
+    document.getElementById('trackSub').textContent=t.trackSub;
+    document.getElementById('codeInput').placeholder=t.ph;
+    document.getElementById('searchBtn').textContent=t.btn;
+    document.getElementById('trackHint').textContent=t.trackHint;
+    document.getElementById('svcTitle').textContent=t.svcTitle;
+    document.getElementById('svcLead').textContent=t.svcLead;
+    document.getElementById('svc1t').textContent=t.svc1t; document.getElementById('svc1d').textContent=t.svc1d;
+    document.getElementById('svc2t').textContent=t.svc2t; document.getElementById('svc2d').textContent=t.svc2d;
+    document.getElementById('svc3t').textContent=t.svc3t; document.getElementById('svc3d').textContent=t.svc3d;
+    document.getElementById('abtTitle').textContent=t.abtTitle;
+    document.getElementById('abtP1').textContent=t.abtP1;
+    document.getElementById('abtP2').textContent=t.abtP2;
+    document.getElementById('ctTitle').textContent=t.ctTitle;
+    document.getElementById('ct1').textContent=t.ct1; document.getElementById('ct2').textContent=t.ct2;
+    document.getElementById('ct3').textContent=t.ct3; document.getElementById('ct4').textContent=t.ct4;
+    document.documentElement.lang=(lang==='cn')?'zh-CN':'en';
   }
-  document.getElementById('langBtn').addEventListener('click', function(){
-    lang = (lang==='cn')?'en':'cn'; applyLang();
-  });
+  document.getElementById('langBtn').addEventListener('click',function(){lang=(lang==='cn')?'en':'cn';applyLang();});
   applyLang();
 
   var DATA = { entries: [] };
