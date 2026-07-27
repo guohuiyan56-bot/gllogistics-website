@@ -39,6 +39,11 @@
   .admin-link a{color:var(--c-accent);text-decoration:none}
   .admin-link a:hover{text-decoration:underline}
   footer{margin-top:40px;font-size:12px;color:var(--c-muted);text-align:center}
+  /* 嵌入式模式：被 iframe 框进其他网站时使用 ?embed=1，隐藏外壳只留查询框 */
+  body.embed{padding:0;min-height:auto;background:transparent;align-items:stretch}
+  body.embed .wrap{margin-top:0;max-width:100%}
+  body.embed .brand,body.embed .admin-link,body.embed footer{display:none}
+  body.embed .sub{margin-bottom:14px}
 </style>
 </head>
 <body>
@@ -69,6 +74,10 @@
   </div>
 
 <script>
+  // 嵌入式模式：URL 带 ?embed=1 时隐藏外壳，仅显示查询框（用于 iframe 内嵌到其他网站）
+  if(new URLSearchParams(location.search).get('embed') === '1'){
+    document.body.classList.add('embed');
+  }
   var lang = 'cn';
   var I18N = {
     cn:{ title:'货物查询', sub:'请输入您的单号，查询货物运输信息',
