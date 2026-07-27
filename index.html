@@ -3,163 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GREENLINE Logistics — International Freight Forwarding</title>
-<link rel="icon" type="image/png" href="https://www.greenlineint.com/assets/logo.png?v=202607251754">
-<style>
-  :root{
-    --c-bg:#f4f7fb; --c-card:#ffffff; --c-blue:#1f4e79; --c-blue-d:#15395b;
-    --c-accent:#2e7dd1; --c-text:#243042; --c-muted:#6b7785; --c-line:#e2e8f0;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Segoe UI",-apple-system,"Microsoft YaHei",sans-serif;background:var(--c-bg);color:var(--c-text);line-height:1.65}
-  a{color:var(--c-accent);text-decoration:none}
-  .nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--c-line);display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
-  .nav .logo{font-weight:800;font-size:18px;color:var(--c-blue-d);letter-spacing:.5px}
-  .nav .links{display:flex;gap:22px}
-  .nav .links a{color:var(--c-text);font-size:14px}
-  .nav .links a:hover{color:var(--c-accent)}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-  .hero{background:linear-gradient(135deg,#15395b,#1f4e79);color:#fff;padding:66px 20px 58px;text-align:center}
-  .hero h1{font-size:34px;font-weight:800;letter-spacing:1px;margin-bottom:12px}
-  .hero p{font-size:16px;opacity:.92;max-width:660px;margin:0 auto}
-  .section{padding:54px 0}
-  .section h2{font-size:26px;color:var(--c-blue-d);text-align:center;margin-bottom:8px}
-  .section .lead{text-align:center;color:var(--c-muted);margin-bottom:32px;font-size:14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  .card{background:var(--c-card);border:1px solid var(--c-line);border-radius:14px;padding:24px;box-shadow:0 4px 16px rgba(31,78,121,.05)}
-  .card .ico{font-size:28px;margin-bottom:10px}
-  .card h3{color:var(--c-blue-d);font-size:18px;margin-bottom:8px}
-  .card p{color:var(--c-muted);font-size:14px}
-  /* 追踪（新增） */
-  .track-band{max-width:720px;margin:0 auto;background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;padding:28px;box-shadow:0 8px 28px rgba(31,78,121,.08)}
-  .track-band h2{margin-bottom:4px}
-  .track-band .sub{text-align:center;color:var(--c-muted);font-size:13px;margin-bottom:20px}
-  .row{display:flex;gap:10px;flex-wrap:wrap}
-  .row input{flex:1;min-width:220px;padding:14px 16px;border:1px solid var(--c-line);border-radius:10px;font-size:15px;outline:none}
-  .row input:focus{border-color:var(--c-accent)}
-  .row button{background:var(--c-blue);color:#fff;border:none;border-radius:10px;padding:0 28px;font-size:15px;cursor:pointer;transition:.2s}
-  .row button:hover{background:var(--c-blue-d)}
-  .hint{color:var(--c-muted);font-size:12px;margin-top:10px;text-align:center}
-  .result{margin-top:18px;display:none}
-  .result.show{display:block;animation:fade .35s ease}
-  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .res-code{font-size:13px;color:var(--c-muted);margin-bottom:8px}
-  .res-code b{color:var(--c-blue-d);font-size:15px}
-  .res-info{background:var(--c-bg);border:1px solid var(--c-line);border-radius:12px;padding:18px;font-size:15px;white-space:pre-wrap;word-break:break-word}
-  .res-updated{margin-top:10px;font-size:12px;color:var(--c-muted);text-align:right}
-  .notfound{margin-top:18px;display:none;background:#fff4ec;border:1px solid #f0c9a8;color:#9a5a23;border-radius:12px;padding:16px;text-align:center;font-size:14px}
-  .notfound.show{display:block}
-  .about{background:var(--c-card);border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line)}
-  .about .grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:54px 0}
-  .about h2{font-size:22px;color:var(--c-blue-d);margin-bottom:12px}
-  .about p{color:var(--c-text);font-size:15px;margin-bottom:10px}
-  .about .contact li{list-style:none;padding:6px 0;border-bottom:1px dashed var(--c-line);font-size:14px;color:var(--c-text)}
-  footer{text-align:center;padding:26px 20px;font-size:12px;color:var(--c-muted)}
-  @media(max-width:680px){.nav .links{gap:14px}.hero h1{font-size:26px}.about .grid2{grid-template-columns:1fr}}
-</style>
+<title>GREENLINE LOGISTICS — International Transportation Logistics</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="nav">
-    <div class="logo">GREENLINE Logistics</div>
-    <div class="links">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#tracking">Tracking</a>
-      <a href="#about">About</a>
-    </div>
-  </nav>
 
-  <header class="hero" id="home">
-    <h1>GREENLINE Logistics</h1>
-    <p>Professional Transportation &amp; Logistics</p>
-  </header>
+<!-- 顶栏 -->
+<div class="topbar">
+  <span class="lang-switch">中文 / English</span>
+</div>
 
-  <section class="section" id="services">
-    <div class="wrap">
-      <h2>Core Advantages</h2>
-      <div class="lead">Reliable international freight forwarding built on a mature global network</div>
-      <div class="grid">
-        <div class="card"><div class="ico">🌊</div><h3>International Ocean Shipping</h3><p>We are committed to providing customers with high-quality and comprehensive international ocean freight forwarding services.</p></div>
-        <div class="card"><div class="ico">✈️</div><h3>International Air Freight</h3><p>We provide customers with high-quality international air transportation services.</p></div>
-        <div class="card"><div class="ico">🚚</div><h3>Door-to-door Sea Freight</h3><p>We offer courier and truck delivery via multiple channels to shorten transit time.</p></div>
-        <div class="card"><div class="ico">🌐</div><h3>Stable Global Delivery</h3><p>Our business covers dozens of countries across five continents. Mature cross-border supply chains guarantee stable delivery schedules.</p></div>
+<!-- 导航 -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">GREENLINE LOGISTICS</div>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="service-zones.html">Service Zones</a>
+      <a href="service.html">Service</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="nav-right">
+      <div class="search-box">
+        <input type="text" placeholder="">
+        <button type="button">🔍</button>
       </div>
     </div>
-  </section>
+  </div>
+</header>
 
-  <section class="section" id="tracking">
-    <div class="wrap">
-      <div class="track-band">
-        <h2>Cargo Tracking</h2>
-        <div class="sub">Enter your tracking number to view shipment status</div>
-        <div class="row">
-          <input id="codeInput" type="text" autocomplete="off" placeholder="Enter tracking no.">
-          <button id="searchBtn">Track</button>
-        </div>
-        <div class="hint">Order / B/L / Container no. maintained by our back-office team</div>
+<!-- Hero 横幅 -->
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1400&q=80" alt="International Transportation Logistics">
+  <div class="hero-overlay">
+    <h1>国际运输物流</h1>
+    <p>International transportation logistics</p>
+  </div>
+  <div class="qr-float">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://www.gllogistics.net" alt="QR Code">
+  </div>
+</section>
 
-        <div class="result" id="result">
-          <div class="res-code">CODE: <b id="resCode"></b></div>
-          <div class="res-info" id="resInfo"></div>
-          <div class="res-updated" id="resUpdated"></div>
-        </div>
-        <div class="notfound" id="notfound"></div>
+<!-- Core Advantages -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Core Advantages</h2>
+    <div class="card-grid">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5ebcc?w=400&q=80" alt="International Ocean Shipping">
+        <div class="label">International Ocean Shipping</div>
+      </div>
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=400&q=80" alt="international Air Freight">
+        <div class="label">international Air Freight</div>
+      </div>
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1521791055366-0d5542d17526?w=400&q=80" alt="Door-to-door Sea Freight">
+        <div class="label">Door-to-door Sea Freight</div>
+      </div>
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80" alt="Stable Global Delivery">
+        <div class="label">Stable Global Delivery</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="about" id="about">
-    <div class="wrap grid2">
-      <div>
-        <h2>Professional Transportation &amp; Logistics</h2>
-        <p>We are committed to providing customers with high-quality and comprehensive international ocean freight forwarding services.</p>
-        <p>Our business covers dozens of countries across five continents. Mature cross-border supply chains guarantee stable delivery schedules.</p>
+<!-- 公路横幅 -->
+<section class="full-banner">
+  <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1400&q=80" alt="Professional Transportation & Logistics">
+  <div class="banner-qr">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=72x72&data=https://www.gllogistics.net" alt="QR Code">
+  </div>
+  <div class="banner-text">
+    <h2>Professional Transportation &amp; Logistics</h2>
+    <p>Smooth Shipping for You All the Way</p>
+  </div>
+</section>
+
+<!-- Service Items -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Service Items</h2>
+    <div class="card-grid">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=400&q=80" alt="Air Freight">
       </div>
-      <div>
-        <h2>Contact Us</h2>
-        <ul class="contact">
-          <li>📧 Email: service@gllogistics.net</li>
-          <li>📞 Tel: +86 (to be added)</li>
-          <li>🌐 Web: www.gllogistics.net</li>
-          <li>🕒 Hours: Mon–Sat 9:00–18:00</li>
-        </ul>
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&q=80" alt="Ocean Shipping">
+      </div>
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?w=400&q=80" alt="Sea Transport">
+      </div>
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80" alt="Warehousing">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>GREENLINE Logistics · International Freight Forwarding · Cargo Tracking System</footer>
+<!-- Cargo Tracking 模块 -->
+<section class="section">
+  <div class="container">
+    <div class="track-section">
+      <h2>Cargo Tracking / 货物追踪</h2>
+      <div class="track-sub">Enter your tracking number to view shipment status / 输入单号查询货物状态</div>
+      <div class="track-row">
+        <input id="codeInput" type="text" autocomplete="off" placeholder="Enter tracking number / 输入单号...">
+        <button id="searchBtn">Track / 查询</button>
+      </div>
+      <div class="track-hint">Order / B/L / Container no. maintained by our back-office team</div>
+      <div class="track-result" id="result">
+        <div class="track-res-code">CODE: <b id="resCode"></b></div>
+        <div class="track-res-info" id="resInfo"></div>
+        <div class="track-res-time" id="resUpdated"></div>
+      </div>
+      <div class="track-notfound" id="notfound"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Contact Us: +86 18924154000</h4>
+    </div>
+    <div class="footer-col">
+      <p>Mobile: +86 18924154000</p>
+      <p>Email: info@greenlineint.com</p>
+      <p>Website: www.gllogistics.net</p>
+    </div>
+    <div class="footer-col">
+    </div>
+  </div>
+  <div class="footer-bottom">
+    GREENLINE LOGISTICS &copy; 2026 — International Freight Forwarding
+  </div>
+</footer>
 
 <script>
-  var DATA = { entries: [] };
-  fetch('track-data.json?' + Date.now())
-    .then(function(r){ return r.json(); })
-    .then(function(j){ DATA = j; })
-    .catch(function(e){ console.warn('load track-data.json failed', e); });
+var DATA = { entries: [] };
+fetch('track-data.json?' + Date.now())
+  .then(function(r){ return r.json(); })
+  .then(function(j){ DATA = j; })
+  .catch(function(e){ console.warn('load track-data.json failed', e); });
 
-  function search(){
-    var code = (document.getElementById('codeInput').value || '').trim().toUpperCase();
-    var res = document.getElementById('result');
-    var nf  = document.getElementById('notfound');
-    res.classList.remove('show'); nf.classList.remove('show');
-    if(!code) return;
-    var found = null;
-    (DATA.entries||[]).forEach(function(e){
-      if((e.code||'').toUpperCase() === code) found = e;
-    });
-    if(found){
-      document.getElementById('resCode').textContent = found.code;
-      document.getElementById('resInfo').textContent = found.info || '';
-      document.getElementById('resUpdated').textContent = 'Updated: ' + (found.updated || '—');
-      res.classList.add('show');
-    } else {
-      nf.textContent = 'No information found for this number. Please verify or contact our support.';
-      nf.classList.add('show');
-    }
-  }
-  document.getElementById('searchBtn').addEventListener('click', search);
-  document.getElementById('codeInput').addEventListener('keydown', function(e){
-    if(e.key === 'Enter') search();
+function search(){
+  var code = (document.getElementById('codeInput').value || '').trim().toUpperCase();
+  var res = document.getElementById('result');
+  var nf  = document.getElementById('notfound');
+  res.classList.remove('show'); nf.classList.remove('show');
+  if(!code) return;
+  var found = null;
+  (DATA.entries||[]).forEach(function(e){
+    if((e.code||'').toUpperCase() === code) found = e;
   });
+  if(found){
+    document.getElementById('resCode').textContent = found.code;
+    document.getElementById('resInfo').textContent = found.info || '';
+    document.getElementById('resUpdated').textContent = 'Updated: ' + (found.updated || '—');
+    res.classList.add('show');
+  } else {
+    nf.textContent = 'No information found for this number. Please verify or contact our support.\n未找到该单号信息，请核对后重试或联系客服。';
+    nf.classList.add('show');
+  }
+}
+document.getElementById('searchBtn').addEventListener('click', search);
+document.getElementById('codeInput').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') search();
+});
 </script>
+
 </body>
 </html>
