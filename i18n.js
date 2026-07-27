@@ -1,5 +1,5 @@
 /* ============================================================
-   GREENLINE LOGISTICS — i18n Bilingual (zh / en)
+   BENRUN LOGISTICS — i18n Bilingual (zh / en)
    Load this script in <head> of every page.
    Usage: add data-i18n="key" to any element.
    ============================================================ */

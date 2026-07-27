@@ -251,7 +251,7 @@ window.addEventListener('gl-lang-change', function(){
         var tag = p.tagName;
         // skip script/style/nav/footer/header/.search-overlay
         if(/^(SCRIPT|STYLE|NOSCRIPT)$/.test(tag)) return NodeFilter.FILTER_REJECT;
-        if(p.closest('nav,.nav,.footer,.header,.topbar,.search-overlay,.track-row,.back-top,.mascot')) return NodeFilter.FILTER_REJECT;
+        if(p.closest('nav,.nav,.footer,.header,.search-overlay,.track-row,.back-top,.mascot')) return NodeFilter.FILTER_REJECT;
         if(n.textContent.trim().length < 2) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }}
