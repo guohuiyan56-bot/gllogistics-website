@@ -31,6 +31,7 @@
   .del{background:var(--c-bad);padding:5px 10px;font-size:12px}
   .edit{background:var(--c-accent);padding:5px 10px;font-size:12px;margin-right:6px}
   .tip{font-size:12px;color:var(--c-muted);line-height:1.8;margin-top:10px}
+  .tl-count{font-size:11px;color:var(--c-accent);margin-top:6px}
   a.back{color:var(--c-accent);text-decoration:none;font-size:13px}
   .status{font-size:13px;margin-top:10px;padding:9px 12px;border-radius:8px;display:none}
   .status.ok{display:block;background:#e8f5e9;color:var(--c-ok);border:1px solid #c8e6c9}
@@ -64,6 +65,9 @@
     </div>
     <label>信息 / Info（客户看到的内容，可多行）</label>
     <textarea id="fInfo" placeholder="例如：您的货物已于 ... 在深圳盐田港装船，预计 ... 抵达目的港 ..."></textarea>
+    <label>物流轨迹 / Timeline（时间轴，可选）</label>
+    <textarea id="fEvents" placeholder="每行一个节点，用 | 分隔：&#10;日期 | 状态 | 地点 | 备注&#10;例：2026-07-25 | 已揽收 | 广州 | 仓库收货&#10;2026-07-26 | 已装船 | 深圳盐田港 | COSCO SHIPPING LINE"></textarea>
+    <div class="tip">留空则客户查询时只显示上方「信息」文字；填写后将以链条式时间轴展示每一次物流节点（地点、备注可省略，用 | 分隔）。</div>
     <div class="btns">
       <button id="saveBtn">保存条目</button>
       <button class="sec" id="cancelBtn" style="display:none">取消编辑</button>
@@ -120,6 +124,22 @@
   var editingIndex = -1;
 
   function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+  function parseEvents(text){
+    return (text||'').split('\n').map(function(l){return l.trim();}).filter(function(l){return l;}).map(function(line){
+      var p = line.split('|').map(function(s){return s.trim();});
+      var ev = {};
+      if(p[0]) ev.date = p[0];
+      if(p[1]) ev.status = p[1];
+      if(p[2]) ev.location = p[2];
+      if(p[3]) ev.note = p[3];
+      return ev;
+    }).filter(function(ev){ return ev.date || ev.status || ev.note || ev.location; });
+  }
+  function eventsToText(events){
+    return (events||[]).map(function(ev){
+      return [ev.date||'', ev.status||'', ev.location||'', ev.note||''].join(' | ');
+    }).join('\n');
+  }
   function $(id){ return document.getElementById(id); }
   function setStatus(msg, type){
     var el = $('status');
@@ -150,9 +170,10 @@
     entries.forEach(function(e, i){
       var tr = document.createElement('tr');
       var infoText = (e.info || '').replace(/</g,'&lt;');
+      var tlCount = (e.events && e.events.length) ? '<div class="tl-count">⛓ 轨迹 '+e.events.length+' 个节点</div>' : '';
       tr.innerHTML =
         '<td><code>'+esc(e.code)+'</code></td>'+
-        '<td><div class="info-cell">'+infoText+'</div></td>'+
+        '<td><div class="info-cell">'+infoText+tlCount+'</div></td>'+
         '<td>'+esc(e.updated||'')+'</td>'+
         '<td><button class="edit" data-i="'+i+'">编辑</button>'+
         '<button class="del" data-i="'+i+'">删除</button></td>';
@@ -173,6 +194,7 @@
         $('fCode').value = e.code || '';
         $('fInfo').value = e.info || '';
         $('fDate').value = e.updated || '';
+        $('fEvents').value = eventsToText(e.events||[]);
         $('formTitle').textContent = '✏️ 编辑条目（'+e.code+'）';
         $('saveBtn').textContent = '更新条目';
         $('cancelBtn').style.display = '';
@@ -183,7 +205,7 @@
 
   function resetForm(){
     editingIndex = -1;
-    $('fCode').value=''; $('fInfo').value=''; $('fDate').value='';
+    $('fCode').value=''; $('fInfo').value=''; $('fDate').value=''; $('fEvents').value='';
     $('formTitle').textContent='➕ 新增追踪条目';
     $('saveBtn').textContent='保存条目';
     $('cancelBtn').style.display='none';
@@ -195,6 +217,8 @@
     var date = $('fDate').value.trim();
     if(!code || !info){ alert('请填写单号和信息'); return; }
     var rec = { code: code, info: info, updated: date };
+    var events = parseEvents($('fEvents').value);
+    if(events.length) rec.events = events;
     if(editingIndex >= 0){
       entries[editingIndex] = rec;
     } else {

@@ -117,6 +117,7 @@
       <div class="track-result" id="result">
         <div class="track-res-code"><span data-i18n="track.code">CODE:</span> <b id="resCode"></b></div>
         <div class="track-res-info" id="resInfo"></div>
+        <div class="track-timeline" id="resTimeline"></div>
         <div class="track-res-time" id="resUpdated"></div>
       </div>
       <div class="track-notfound" id="notfound"></div>
@@ -171,7 +172,9 @@ function search(){
   var code = (document.getElementById('codeInput').value || '').trim().toUpperCase();
   var res = document.getElementById('result');
   var nf  = document.getElementById('notfound');
+  var tl  = document.getElementById('resTimeline');
   res.classList.remove('show'); nf.classList.remove('show');
+  if(tl) tl.innerHTML = '';
   if(!code) return;
   var found = null;
   (DATA.entries||[]).forEach(function(e){
@@ -180,12 +183,35 @@ function search(){
   if(found){
     document.getElementById('resCode').textContent = found.code;
     document.getElementById('resInfo').textContent = found.info || '';
+    var events = (found.events||[]).filter(function(x){ return x && (x.status||x.date||x.note||x.location); });
+    if(events.length && tl) renderTimeline(events);
     document.getElementById('resUpdated').textContent = (I18N.curLang()==='zh'?'更新时间：':'Updated: ') + (found.updated || '—');
     res.classList.add('show');
   } else {
     nf.textContent = I18N.t('track.nf');
     nf.classList.add('show');
   }
+}
+
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+
+function renderTimeline(events){
+  var tl = document.getElementById('resTimeline');
+  if(!tl) return;
+  var zh = I18N.curLang()==='zh';
+  var html = '<div class="tl-head">'+(zh?'🚚 物流轨迹':'🚚 Tracking Timeline')+'</div><ul class="tl-list">';
+  events.slice().reverse().forEach(function(ev, i){
+    html += '<li class="tl-item'+(i===0?' tl-now':'')+'"><span class="tl-dot"></span><div class="tl-body">';
+    if(ev.date) html += '<div class="tl-date">'+esc(ev.date)+'</div>';
+    if(ev.status) html += '<div class="tl-status">'+esc(ev.status)+'</div>';
+    var meta = [];
+    if(ev.location) meta.push((zh?'地点：':'Loc: ')+esc(ev.location));
+    if(ev.note) meta.push(esc(ev.note));
+    if(meta.length) html += '<div class="tl-meta">'+meta.join(' &nbsp;·&nbsp; ')+'</div>';
+    html += '</div></li>';
+  });
+  html += '</ul>';
+  tl.innerHTML = html;
 }
 document.getElementById('searchBtn').addEventListener('click', search);
 document.getElementById('codeInput').addEventListener('keydown', function(e){
