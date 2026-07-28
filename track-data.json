@@ -1,9 +1,48 @@
 {
   "entries": [
     {
-      "code": "GL2026-001",
-      "info": "以出柜",
-      "updated": "2026-07-09"
+      "code": "GREENLINE+DVD",
+      "infoZh": "GREENLINE",
+      "infoEn": "GREENLINE",
+      "updated": "2026-07-27",
+      "events": [
+        {
+          "date": "2026-06-28 货物已到达仓库",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-06-30 完成装柜",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-07-06 船舶自南沙港开航",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-07-27货物抵达劳托卡港",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ]
     }
   ]
 }
