@@ -84,7 +84,11 @@ var I18N = (function () {
     'footer.contact':      { zh: '联系方式',                 en: 'Contact' },
     'footer.address':      { zh: '地址',                     en: 'Address' },
     'footer.copyright':    { zh: '© 2026 本润物流——国际货运代理。保留所有权利。', en: '&copy; 2026 BENRUN LOGISTICS — International Freight Forwarding. All rights reserved.' },
-    'footer.copyright.short': { zh: '© 2026 本润物流。保留所有权利。', en: '&copy; 2026 BENRUN LOGISTICS — All rights reserved.' }
+    'footer.copyright.short': { zh: '© 2026 本润物流。保留所有权利。', en: '&copy; 2026 BENRUN LOGISTICS — All rights reserved.' },
+
+    /* Floating QR Sidebar */
+    'sidebar.whatsapp': { zh: 'WhatsApp', en: 'WhatsApp' },
+    'sidebar.wechat':   { zh: '微信',       en: 'WeChat' }
   };
 
   var curLang = localStorage.getItem('gl-lang') || 'en';

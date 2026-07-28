@@ -139,5 +139,21 @@
 (function(){var bt=document.querySelector('.back-top');if(!bt)return;window.addEventListener('scroll',function(){if(window.scrollY>400)bt.classList.add('visible');else bt.classList.remove('visible');},{passive:true});})();
 </script>
 
+<!-- Floating QR Sidebar (Fixed Right) -->
+<aside class="qr-sidebar" id="qrSidebar">
+  <button class="qr-sidebar-toggle" onclick="document.getElementById('qrSidebar').classList.toggle('open')" title="Scan QR Code">QR CODE &#9776;</button>
+  <div class="qr-sidebar-panel">
+    <div class="qr-card">
+      <img src="images/qr-whatsapp.png" alt="WhatsApp Business QR Code">
+      <span data-i18n="sidebar.whatsapp">WhatsApp</span>
+    </div>
+    <div class="qr-divider"></div>
+    <div class="qr-card">
+      <img src="images/qr-wechat.png" alt="WeChat QR Code">
+      <span data-i18n="sidebar.wechat">WeChat</span>
+    </div>
+  </div>
+</aside>
+
 </body>
 </html>

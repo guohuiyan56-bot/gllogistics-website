@@ -1061,4 +1061,102 @@ a:hover { color: var(--accent) }
   body { font-size: 14px; }
   .container { padding: 0 16px; }
   .section { padding: 36px 0; }
+
+  /* Floating QR Sidebar — hide on very small screens */
+  .qr-sidebar { display: none !important; }
+}
+
+/* ============================================================
+   Floating QR Sidebar — Fixed Right Panel (WhatsApp + WeChat)
+   ============================================================ */
+.qr-sidebar {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: inherit;
+}
+
+/* Toggle tab — always visible strip on right edge */
+.qr-sidebar-toggle {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  background: linear-gradient(180deg, var(--brown-700), var(--brown-800));
+  color: #fff;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  padding: 18px 8px;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  box-shadow: -3px 0 12px rgba(0,0,0,.15);
+  transition: background .25s, transform .25s;
+}
+.qr-sidebar-toggle:hover {
+  background: linear-gradient(180deg, var(--accent-dark), var(--brown-700));
+  transform: translateX(-2px);
+}
+
+/* Panel container */
+.qr-sidebar-panel {
+  position: absolute;
+  right: 44px;
+  top: 50%;
+  transform: translateY(-50%) translateX(12px);
+  background: #fff;
+  border-radius: 16px 0 0 16px;
+  box-shadow: -4px 0 24px rgba(0,0,0,.18), 0 0 1px rgba(0,0,0,.08);
+  padding: 20px 16px 16px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform .3s cubic-bezier(.22,1,.36,1), opacity .3s, visibility .3s;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 170px;
+}
+.qr-sidebar.open .qr-sidebar-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Individual QR card inside panel */
+.qr-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.qr-card img {
+  width: 140px;
+  height: auto;
+  border-radius: 10px;
+  border: 1.5px solid var(--brown-200, #e0cdb8);
+  background: #fff;
+  transition: border-color .2s, box-shadow .2s;
+}
+.qr-card img:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(212,168,83,.25);
+}
+.qr-card span {
+  font-size: 12px;
+  color: var(--brown-600);
+  font-weight: 500;
+  letter-spacing: .5px;
+}
+
+/* Divider between two QR cards */
+.qr-divider {
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brown-300), transparent);
 }
