@@ -211,7 +211,8 @@ function renderTimeline(events){
     var location = pick(ev, 'location');
     var note = pick(ev, 'note');
     html += '<li class="tl-item'+(i===0?' tl-now':'')+'"><span class="tl-dot"></span><div class="tl-body">';
-    if(ev.date) html += '<div class="tl-date">'+esc(ev.date)+'</div>';
+    var dateShow = zh ? (ev.date||'') : (ev.dateEn || ev.date || '');
+    if(dateShow) html += '<div class="tl-date">'+esc(dateShow)+'</div>';
     if(status) html += '<div class="tl-status">'+esc(status)+'</div>';
     var meta = [];
     if(location) meta.push((zh?'地点：':'Loc: ')+esc(location));

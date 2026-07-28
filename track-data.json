@@ -8,6 +8,7 @@
       "events": [
         {
           "date": "2026-07-05",
+          "dateEn": "2026-07-05",
           "statusZh": "已揽收",
           "statusEn": "Picked up",
           "locationZh": "广州",
@@ -17,12 +18,61 @@
         },
         {
           "date": "2026-07-09",
+          "dateEn": "2026-07-09",
           "statusZh": "已装柜",
           "statusEn": "Container loaded",
           "locationZh": "深圳盐田港",
           "locationEn": "Yantian Port, Shenzhen",
           "noteZh": "等待出运",
           "noteEn": "Awaiting departure"
+        }
+      ]
+    },
+    {
+      "code": "GREENLINE+DVD",
+      "infoZh": "GREENLINE+DVD 66件",
+      "infoEn": "GREENLINE+DVD 66 pcs",
+      "updated": "2026-07-27",
+      "events": [
+        {
+          "date": "2026-06-28 货物已到达仓库",
+          "dateEn": "2026-06-28 Arrived at warehouse",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-06-30 完成装柜",
+          "dateEn": "2026-06-30 Container loaded",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-07-06 船舶自南沙港开航",
+          "dateEn": "2026-07-06 Vessel departed from Nansha Port",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-07-27货物抵达劳托卡港",
+          "dateEn": "2026-07-27 Cargo arrived at Lautoka Port",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
         }
       ]
     }
