@@ -2,8 +2,29 @@
   "entries": [
     {
       "code": "GL2026-001",
-      "info": "以出柜",
-      "updated": "2026-07-09"
+      "infoZh": "您的货物已于 2026-07-09 在深圳盐田港完成装柜，目前正等待安排出运至目的港。",
+      "infoEn": "Your cargo was loaded at Yantian Port, Shenzhen on 2026-07-09 and is now awaiting departure to the destination port.",
+      "updated": "2026-07-09",
+      "events": [
+        {
+          "date": "2026-07-05",
+          "statusZh": "已揽收",
+          "statusEn": "Picked up",
+          "locationZh": "广州",
+          "locationEn": "Guangzhou",
+          "noteZh": "仓库收货",
+          "noteEn": "Received at warehouse"
+        },
+        {
+          "date": "2026-07-09",
+          "statusZh": "已装柜",
+          "statusEn": "Container loaded",
+          "locationZh": "深圳盐田港",
+          "locationEn": "Yantian Port, Shenzhen",
+          "noteZh": "等待出运",
+          "noteEn": "Awaiting departure"
+        }
+      ]
     }
   ]
 }

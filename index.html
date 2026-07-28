@@ -178,7 +178,9 @@ function search(){
   if(found){
     document.getElementById('resCode').textContent = found.code;
     var zh = I18N.curLang()==='zh';
-    document.getElementById('resInfo').textContent = (found['info'+(zh?'Zh':'En')] || found.info || '');
+    var infoKey  = zh ? 'infoZh' : 'infoEn';
+    var otherKey = zh ? 'infoEn' : 'infoZh';
+    document.getElementById('resInfo').textContent = (found[infoKey] || found[otherKey] || found.info || '');
     window.__lastTrackCode = code;
     var events = (found.events||[]).filter(function(x){ return x && (x.status||x.statusZh||x.statusEn||x.date||x.note||x.noteZh||x.noteEn||x.location||x.locationZh||x.locationEn); });
     if(events.length && tl) renderTimeline(events);
@@ -197,8 +199,11 @@ function renderTimeline(events){
   if(!tl) return;
   var zh = I18N.curLang()==='zh';
   function pick(ev, base){
-    var k = base + (zh ? 'Zh' : 'En');
-    return (ev[k] != null && ev[k] !== '') ? ev[k] : (ev[base] || '');
+    var k  = base + (zh ? 'Zh' : 'En');
+    var ok = base + (zh ? 'En' : 'Zh');
+    return (ev[k]  != null && ev[k]  !== '') ? ev[k]
+         : (ev[ok] != null && ev[ok] !== '') ? ev[ok]
+         : (ev[base] || '');
   }
   var html = '<div class="tl-head">'+(zh?'🚚 物流轨迹':'🚚 Tracking Timeline')+'</div><ul class="tl-list">';
   events.slice().reverse().forEach(function(ev, i){
