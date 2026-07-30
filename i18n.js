@@ -45,7 +45,7 @@ var I18N = (function () {
     'zones.intro2':        { zh: '凭借成熟的物流体系与运营策略，我们快速响应多元市场需求，帮助客户降低运营成本、提升效率，实现从起运地到目的地的无缝追踪。无论您是需要跨区域协作，还是布局全球市场，我们都能提供精准、高效的物流服务，让货物安全、快速地抵达全球目的地。', en: 'With mature logistics capabilities and operational strategies, we respond quickly to diverse market needs — helping clients cut costs and move faster, while tracking every shipment seamlessly from origin to destination. Whether you need cross-regional cooperation or global expansion, we deliver precise, efficient logistics that gets your goods there safely and fast.' },
     'zones.intro3':        { zh: '我们始终以诚信为本、以客户需求为先、以专业服务为保障，与全球合作伙伴建立长期稳定的合作关系。未来，我们将持续提升国际服务能力，深化资源共享与价值共创，与全球客户携手同行，实现持久、稳健、可持续的发展。', en: 'We are guided by integrity, driven by our clients’ needs and backed by professional service — building long-term partnerships with collaborators worldwide. Looking ahead, we will keep strengthening our global capabilities, sharing resources and creating value together with customers everywhere for steady, sustainable growth.' },
     'zones.areas.title':   { zh: '服务区域',                                en: 'Where We Operate' },
-    'zones.oceania.title': { zh: '大洋洲 — 太平洋岛屿',                     en: 'Oceania — Pacific Islands' },
+    'zones.oceania.title': { zh: '南太平洋 — 太平洋岛屿',                   en: 'South Pacific — Pacific Islands' },
     'zones.oceania.desc':  { zh: '业务覆盖澳大利亚大陆，并连接新西兰、斐济、巴布亚新几内亚等南太平洋岛国。我们拥有自营仓储设施，提供端到端的全程物流，承接整箱（FCL）、拼箱（LCL）、散货及各类集装箱运输；资深清关团队负责商品归类、加固打板、门到门配送，直达海外收货人。', en: 'We cover mainland Australia and connect New Zealand, Fiji, Papua New Guinea and other South Pacific islands. With our own warehousing and end-to-end logistics, we handle full container (FCL), LCL, break-bulk and all container types. Our experienced customs team manages classification, cargo securing and door-to-door delivery straight to overseas consignees.' },
     'zones.mideast.title': { zh: '中东及北非',                              en: 'Middle East & North Africa' },
     'zones.mideast.desc':  { zh: '专注连接中东、欧洲与非洲的核心海运航线，在迪拜、多哈设有自营仓库，可辐射 GCC 各国及北非、东非、西非主要港口。我们承接大型基建项目，提供散货船租赁、大宗商品运输，以及门到港双清包税的一站式物流方案。', en: 'We focus on the key shipping lanes linking the Middle East, Europe and Africa, with our own warehouses in Dubai and Doha serving GCC countries and major ports across North, East and West Africa. We support large infrastructure projects with bulk-vessel chartering and commodity shipping, plus door-to-port, tax-inclusive one-stop solutions.' },
@@ -65,7 +65,7 @@ var I18N = (function () {
 
     /* ---- About page ---- */
     'about.title':         { zh: '关于我们',                                en: 'About Us' },
-    'about.p1':            { zh: '我们的客户遍布全球，重点覆盖大洋洲、中东与非洲，主要来自澳大利亚、斐济、巴布亚新几内亚、新西兰、沙特、约旦、卡塔尔、阿联酋、埃及与几内亚。客户满意是我们不变的追求，我们投入时间与资源，为每一位客户创造最大价值。', en: 'Our clients span the globe, with a focus on Oceania, the Middle East and Africa — from Australia, Fiji, Papua New Guinea and New Zealand to Saudi Arabia, Jordan, Qatar, the UAE, Egypt and Guinea. Your satisfaction is our priority, and we invest the time and resources to maximize value for every client.' },
+    'about.p1':            { zh: '我们的客户遍布全球，重点覆盖南太平洋、中东与非洲，主要来自澳大利亚、斐济、巴布亚新几内亚、新西兰、沙特、约旦、卡塔尔、阿联酋、埃及与几内亚。客户满意是我们不变的追求，我们投入时间与资源，为每一位客户创造最大价值。', en: 'Our clients span the globe, with a focus on the South Pacific, the Middle East and Africa — from Australia, Fiji, Papua New Guinea and New Zealand to Saudi Arabia, Jordan, Qatar, the UAE, Egypt and Guinea. Your satisfaction is our priority, and we invest the time and resources to maximize value for every client.' },
     'about.p2':            { zh: '我们提供一站式全流程服务，涵盖单证制作、商检、缴税、报关、门到门运输及清关派送。专业团队全天 24 小时在广州收货，并提供全国上门取件，让您随时掌握准确的货物动态。', en: 'We offer a true one-stop service — documentation, inspection, duties, customs declaration, door-to-door transport and cleared delivery. Our team receives cargo 24/7 in Guangzhou and picks up nationwide, so you always know exactly where your shipment is.' },
     'about.one_stop':       { zh: '一站式解决方案：从单证、商检、出口报关到清关与末端配送，全部由我们团队打理，运输全程安心无忧。', en: 'One-stop solution: we handle everything — documents, inspection, export declaration, clearance and final delivery — so your shipment moves with total peace of mind.' },
     'about.easy_process':   { zh: '简单四步：您只需提供装箱单与收发件人信息，我们即安排全国上门取件，物流体验轻松又省心。', en: 'Effortless process: just send us the packing list and sender/receiver details. We arrange nationwide pickup, making logistics simple and hassle-free.' },
@@ -80,7 +80,7 @@ var I18N = (function () {
 
     /* ---- Footer ---- */
     'footer.company':      { zh: '本润物流——专业的国际货运代理与综合物流服务商。', en: 'Your professional partner for international freight forwarding and integrated logistics.' },
-    'footer.serving':      { zh: '自成立以来，持续服务大洋洲、中东及非洲客户。', en: 'Serving clients across Oceania, the Middle East and Africa since our founding.' },
+    'footer.serving':      { zh: '自成立以来，持续服务南太平洋、中东及非洲客户。', en: 'Serving clients across the South Pacific, the Middle East and Africa since our founding.' },
     'footer.contact':      { zh: '联系方式',                                en: 'Contact' },
     'footer.address':      { zh: '地址',                                    en: 'Address' },
     'footer.copyright':    { zh: '© 2026 本润物流——国际货运代理。保留所有权利。', en: '© 2026 GREENLINE LOGISTICS — International Freight Forwarding. All rights reserved.' },
