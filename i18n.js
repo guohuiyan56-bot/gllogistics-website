@@ -21,7 +21,7 @@ var I18N = (function () {
 
     /* ---- Index / Home ---- */
     'home.hero.title':     { zh: '国际物流',                                en: 'International Logistics' },
-    'home.hero.sub':       { zh: '可靠货运，通达大洋洲、中东与非洲',           en: 'Reliable freight forwarding across Oceania, the Middle East and Africa' },
+    'home.hero.sub':       { zh: '专业货运代理，通达南太平洋、中东与非洲',     en: 'Professional freight forwarding across the South Pacific, the Middle East and Africa' },
     'home.core.title':     { zh: '核心优势',                                en: 'Core Advantages' },
     'home.core.ocean':     { zh: '国际海运',                                en: 'Ocean Freight' },
     'home.core.air':       { zh: '国际空运',                                en: 'Air Freight' },
