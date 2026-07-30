@@ -50,7 +50,7 @@ var I18N = (function () {
     'zones.mideast.title': { zh: '中东及北非',                              en: 'Middle East & North Africa' },
     'zones.mideast.desc':  { zh: '专注连接中东、欧洲与非洲的核心海运航线，在迪拜、多哈设有自营仓库，可辐射 GCC 各国及北非、东非、西非主要港口。我们承接大型基建项目，提供散货船租赁、大宗商品运输，以及门到港双清包税的一站式物流方案。', en: 'We focus on the key shipping lanes linking the Middle East, Europe and Africa, with our own warehouses in Dubai and Doha serving GCC countries and major ports across North, East and West Africa. We support large infrastructure projects with bulk-vessel chartering and commodity shipping, plus door-to-port, tax-inclusive one-stop solutions.' },
     'zones.africa.title':  { zh: '非洲 — 全面覆盖',                         en: 'Africa — Full Coverage' },
-    'zones.africa.desc':   { zh: '面向全球目的地，我们提供全方位的清关、单证与报关服务，包括整箱及拼箱海运订舱、拖车运输、单/双清包税等。我们的跨境物流一体化链条覆盖清关、拖车与末端配送，助力把握非洲蓬勃发展的基建与物流市场机遇。', en: 'For destinations worldwide, we provide full customs clearance, documentation and declaration services — including FCL & LCL bookings, trucking and single/double-clearance tax packages. Our integrated cross-border chain covers clearance, haulage and last-mile delivery, unlocking Africa's fast-growing infrastructure and market opportunities.' },
+    'zones.africa.desc':   { zh: '面向全球目的地，我们提供全方位的清关、单证与报关服务，包括整箱及拼箱海运订舱、拖车运输、单/双清包税等。我们的跨境物流一体化链条覆盖清关、拖车与末端配送，助力把握非洲蓬勃发展的基建与物流市场机遇。', en: 'For destinations worldwide, we provide full customs clearance, documentation and declaration services — including FCL & LCL bookings, trucking and single/double-clearance tax packages. Our integrated cross-border chain covers clearance, haulage and last-mile delivery, unlocking Africa\'s fast-growing infrastructure and market opportunities.' },
 
     /* ---- Service page ---- */
     'service.title':       { zh: '我们的服务',                              en: 'Our Services' },
@@ -96,15 +96,18 @@ var I18N = (function () {
 
   var curLang = localStorage.getItem('gl-lang') || 'en';
 
+  function syncSwitch() {
+    var sw = document.querySelector('.lang-switch');
+    if (sw) sw.textContent = curLang === 'zh' ? '中文' : 'English';
+  }
+
   function setLang(lang) {
     if (lang !== 'zh' && lang !== 'en') lang = 'en';
     curLang = lang;
     localStorage.setItem('gl-lang', lang);
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     apply();
-    // Update switcher button text
-    var sw = document.querySelector('.lang-switch');
-    if (sw) sw.textContent = lang === 'zh' ? '中文' : 'English';
+    syncSwitch();
     // Broadcast so dynamic areas (e.g. tracking result) can re-render
     try { window.dispatchEvent(new Event('gl-lang-change')); } catch (e) {}
   }
@@ -141,6 +144,7 @@ var I18N = (function () {
       });
     });
     apply();
+    syncSwitch();
   }
 
   // Auto-init when DOM ready
