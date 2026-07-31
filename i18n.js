@@ -87,7 +87,6 @@ var I18N = (function () {
     'footer.copyright.short': { zh: '© 2026 本润物流。保留所有权利。',       en: '© 2026 GREENLINE LOGISTICS — All rights reserved.' },
 
     /* Floating QR Sidebar */
-    'sidebar.whatsapp': { zh: 'WhatsApp', en: 'WhatsApp' },
     'sidebar.wechat':   { zh: '微信',       en: 'WeChat' },
 
     /* Left Enquiry Sidebar */
