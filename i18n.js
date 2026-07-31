@@ -15,12 +15,12 @@ var I18N = (function () {
     'nav.about':       { zh: '关于我们',              en: 'About Us' },
     'nav.contact':     { zh: '联系我们',              en: 'Contact' },
     'nav.track':       { zh: '货物追踪',              en: 'Track Shipment' },
-    'logo':            { zh: '本润物流',              en: 'GREENLINE LOGISTICS' },
+    'logo':            { zh: '本润国际物流',              en: 'GREENLINE LOGISTICS' },
     'search.ph':       { zh: '搜索…',                en: 'Search…' },
     'search.results':  { zh: '搜索结果',              en: 'Search Results' },
 
     /* ---- Index / Home ---- */
-    'home.hero.title':     { zh: '国际物流',                                en: 'International Logistics' },
+    'home.hero.title':     { zh: '本润国际物流',                            en: 'International Logistics' },
     'home.hero.sub':       { zh: '专业货运代理，通达南太平洋、中东与非洲',     en: 'Professional freight forwarding across the South Pacific, the Middle East and Africa' },
     'home.core.title':     { zh: '核心优势',                                en: 'Core Advantages' },
     'home.core.ocean':     { zh: '国际海运',                                en: 'Ocean Freight' },
@@ -72,21 +72,22 @@ var I18N = (function () {
     'about.cta':           { zh: '欢迎随时联系我们咨询！',                    en: 'Get in touch — we’re happy to help with any inquiry.' },
 
     /* ---- Contact page ---- */
-    'contact.heading':     { zh: '本润物流',                                en: 'GREENLINE LOGISTICS' },
+    'contact.heading':     { zh: '本润国际物流',                                en: 'GREENLINE LOGISTICS' },
     'contact.sub':         { zh: '国际货运代理与综合物流解决方案',           en: 'International Freight Forwarding & Integrated Logistics' },
     'contact.phone.label': { zh: '电话',                                    en: 'Phone' },
     'contact.email.label': { zh: '邮箱',                                    en: 'Email' },
     'contact.addr.label':  { zh: '地址',                                    en: 'Address' },
 
     /* ---- Footer ---- */
-    'footer.company':      { zh: '本润物流——专业的国际货运代理与综合物流服务商。', en: 'Your professional partner for international freight forwarding and integrated logistics.' },
+    'footer.company':      { zh: '本润国际物流——专业的国际货运代理与综合物流服务商。', en: 'Your professional partner for international freight forwarding and integrated logistics.' },
     'footer.serving':      { zh: '自成立以来，持续服务南太平洋、中东及非洲客户。', en: 'Serving clients across the South Pacific, the Middle East and Africa since our founding.' },
     'footer.contact':      { zh: '联系方式',                                en: 'Contact' },
     'footer.address':      { zh: '地址',                                    en: 'Address' },
-    'footer.copyright':    { zh: '© 2026 本润物流——国际货运代理。保留所有权利。', en: '© 2026 GREENLINE LOGISTICS — International Freight Forwarding. All rights reserved.' },
-    'footer.copyright.short': { zh: '© 2026 本润物流。保留所有权利。',       en: '© 2026 GREENLINE LOGISTICS — All rights reserved.' },
+    'footer.copyright':    { zh: '© 2026 本润国际物流——国际货运代理。保留所有权利。', en: '© 2026 GREENLINE LOGISTICS — International Freight Forwarding. All rights reserved.' },
+    'footer.copyright.short': { zh: '© 2026 本润国际物流。保留所有权利。',       en: '© 2026 GREENLINE LOGISTICS — All rights reserved.' },
 
     /* Floating QR Sidebar */
+    'sidebar.whatsapp': { zh: 'WhatsApp',   en: 'WhatsApp' },
     'sidebar.wechat':   { zh: '微信',       en: 'WeChat' },
 
     /* Left Enquiry Sidebar */
