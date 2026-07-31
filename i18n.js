@@ -20,7 +20,7 @@ var I18N = (function () {
     'search.results':  { zh: '搜索结果',              en: 'Search Results' },
 
     /* ---- Index / Home ---- */
-    'home.hero.title':     { zh: '本润国际物流',                            en: 'International Logistics' },
+    'home.hero.title':     { zh: '本润国际物流',                            en: 'GREENLINE LOGISTICS' },
     'home.hero.sub':       { zh: '专业货运代理，通达南太平洋、中东与非洲',     en: 'Professional freight forwarding across the South Pacific, the Middle East and Africa' },
     'home.core.title':     { zh: '核心优势',                                en: 'Core Advantages' },
     'home.core.ocean':     { zh: '国际海运',                                en: 'Ocean Freight' },
@@ -77,14 +77,16 @@ var I18N = (function () {
     'contact.phone.label': { zh: '电话',                                    en: 'Phone' },
     'contact.email.label': { zh: '邮箱',                                    en: 'Email' },
     'contact.addr.label':  { zh: '地址',                                    en: 'Address' },
+    'contact.addr.text':   { zh: '中国广东省广州市越秀区<br>环市中路316号<br>金鹰大厦711室', en: 'Room 711, Jinying Bldg<br>No.316 Huanshi Middle Road<br>Yuexiu District, Guangzhou, China' },
 
     /* ---- Footer ---- */
     'footer.company':      { zh: '本润国际物流——专业的国际货运代理与综合物流服务商。', en: 'Your professional partner for international freight forwarding and integrated logistics.' },
     'footer.serving':      { zh: '自成立以来，持续服务南太平洋、中东及非洲客户。', en: 'Serving clients across the South Pacific, the Middle East and Africa since our founding.' },
     'footer.contact':      { zh: '联系方式',                                en: 'Contact' },
     'footer.address':      { zh: '地址',                                    en: 'Address' },
-    'footer.copyright':    { zh: '© 2026 本润国际物流——国际货运代理。保留所有权利。', en: '© 2026 GREENLINE LOGISTICS — International Freight Forwarding. All rights reserved.' },
-    'footer.copyright.short': { zh: '© 2026 本润国际物流。保留所有权利。',       en: '© 2026 GREENLINE LOGISTICS — All rights reserved.' },
+    'footer.addressText':  { zh: '中国广东省广州市越秀区<br>环市中路316号<br>金鹰大厦711室', en: 'Room 711, Jinying Bldg<br>No.316 Huanshi Middle Road<br>Yuexiu District, Guangzhou, China' },
+    'footer.copyright':    { zh: '© 2026 本润国际物流——国际货运代理 保留所有权利', en: '© 2026 GREENLINE LOGISTICS — International Freight Forwarding All rights reserved' },
+    'footer.copyright.short': { zh: '© 2026 本润国际物流 保留所有权利',       en: '© 2026 GREENLINE LOGISTICS — All rights reserved' },
 
     /* Floating QR Sidebar */
     'sidebar.whatsapp': { zh: 'WhatsApp',   en: 'WhatsApp' },
@@ -119,6 +121,10 @@ var I18N = (function () {
   }
 
   function apply() {
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-html');
+      el.innerHTML = t(key);
+    });
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       var text = t(key);
