@@ -1009,16 +1009,25 @@ a:hover { color: var(--accent) }
 /* ============================================================
    RESPONSIVE DESIGN
    ============================================================ */
+/* Keep sidebars open by default; scale them down as the viewport shrinks so they never dominate small screens */
+@media (max-width: 1366px) {
+  .qr-card img { width: 122px; }
+  .qr-sidebar-panel { min-width: 148px; padding: 16px 12px 12px; gap: 12px; }
+  .enq-sidebar-panel { min-width: 182px; }
+}
+
 @media (max-width: 1024px) {
   .card-grid { grid-template-columns: repeat(2, 1fr); }
   .hero { height: 420px; }
   .hero-overlay h1 { font-size: 36px; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 
-  /* Floating sidebars: shrink when opened on medium screens so they never dominate */
-  .qr-card img { width: 116px; }
-  .qr-sidebar-panel { min-width: 148px; padding: 14px 12px 12px; gap: 12px; }
-  .enq-sidebar-panel { min-width: 184px; }
+  /* Floating sidebars: shrink further on small laptops / tablets so they don't dominate */
+  .qr-card img { width: 100px; }
+  .qr-sidebar-panel { min-width: 124px; padding: 14px 10px 10px; gap: 10px; }
+  .enq-sidebar-panel { min-width: 156px; padding: 16px 12px 12px; gap: 10px; }
+  .enq-cta { font-size: 13px; padding: 10px 12px; }
+  .enq-row { font-size: 13px; }
 }
 
 @media (max-width: 768px) {
