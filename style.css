@@ -1014,6 +1014,11 @@ a:hover { color: var(--accent) }
   .hero { height: 420px; }
   .hero-overlay h1 { font-size: 36px; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
+
+  /* Floating sidebars: shrink when opened on medium screens so they never dominate */
+  .qr-card img { width: 116px; }
+  .qr-sidebar-panel { min-width: 148px; padding: 14px 12px 12px; gap: 12px; }
+  .enq-sidebar-panel { min-width: 184px; }
 }
 
 @media (max-width: 768px) {
@@ -1034,6 +1039,7 @@ a:hover { color: var(--accent) }
   .nav.open { display: flex; }
   .nav a { padding: 12px 16px; border-radius: var(--radius-sm); border-left: none; }
   .enq-sidebar { display: none !important; }
+  .qr-sidebar { display: none !important; }
 
   .header-inner { height: auto; padding: 12px 20px; flex-wrap: wrap; gap: 8px; }
   .search-box input { width: 140px; }
@@ -1068,9 +1074,6 @@ a:hover { color: var(--accent) }
   body { font-size: 14px; }
   .container { padding: 0 16px; }
   .section { padding: 36px 0; }
-
-  /* Floating QR Sidebar — hide on very small screens */
-  .qr-sidebar { display: none !important; }
 }
 
 /* ============================================================
