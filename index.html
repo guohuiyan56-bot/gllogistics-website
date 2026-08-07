@@ -215,7 +215,7 @@ function renderTimeline(events){
     if(dateShow) html += '<div class="tl-date">'+esc(dateShow)+'</div>';
     html += '<span class="tl-dot"></span><div class="tl-body">';
     var statusText = status;
-    if(location) statusText += ' <span class="tl-loc">'+(zh?'地点：':'Loc: ')+esc(location)+'</span>';
+    if(location) statusText += ' <span class="tl-loc">'+esc(location)+'</span>';
     if(statusText) html += '<div class="tl-status">'+statusText+'</div>';
     var meta = [];
     if(note) meta.push(esc(note));
