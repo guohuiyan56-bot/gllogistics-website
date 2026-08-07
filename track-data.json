@@ -9,10 +9,10 @@
         {
           "date": "2026-07-31",
           "dateEn": "2026-07-31",
-          "statusZh": "已经装柜",
-          "statusEn": "Container loaded",
-          "locationZh": "南沙",
-          "locationEn": "Nansha",
+          "statusZh": "已经在南沙装柜",
+          "statusEn": "Container has been stuffed at Nansha",
+          "locationZh": "",
+          "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
