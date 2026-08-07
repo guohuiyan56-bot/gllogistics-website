@@ -214,9 +214,10 @@ function renderTimeline(events){
     var dateShow = zh ? (ev.date||'') : (ev.dateEn || ev.date || '');
     if(dateShow) html += '<div class="tl-date">'+esc(dateShow)+'</div>';
     html += '<span class="tl-dot"></span><div class="tl-body">';
-    if(status) html += '<div class="tl-status">'+esc(status)+'</div>';
+    var statusText = status;
+    if(location) statusText += ' <span class="tl-loc">'+(zh?'地点：':'Loc: ')+esc(location)+'</span>';
+    if(statusText) html += '<div class="tl-status">'+statusText+'</div>';
     var meta = [];
-    if(location) meta.push((zh?'地点：':'Loc: ')+esc(location));
     if(note) meta.push(esc(note));
     if(meta.length) html += '<div class="tl-meta">'+meta.join(' &nbsp;·&nbsp; ')+'</div>';
     html += '</div></li>';
