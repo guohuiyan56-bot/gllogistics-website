@@ -427,6 +427,9 @@ a:hover { color: var(--accent) }
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 2;
+  width: 92%;
+  max-width: 920px;
+  padding: 0 16px;
 }
 .full-banner .banner-text h2 {
   font-size: 32px;
@@ -659,6 +662,13 @@ a:hover { color: var(--accent) }
   transition: color .2s;
 }
 .footer-col a:hover p { color: var(--accent) }
+.footer-same-number {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--accent-light);
+  margin-left: 6px;
+  white-space: nowrap;
+}
 .footer-bottom {
   text-align: center;
   padding-top: 24px;
@@ -1064,7 +1074,9 @@ a:hover { color: var(--accent) }
   .hero-overlay p { font-size: 15px; }
   .page-hero { height: 260px; }
   .full-banner { height: 180px; }
+  .full-banner .banner-text { padding: 0 14px; }
   .full-banner .banner-text h2 { font-size: 22px; }
+  .full-banner .banner-text p { font-size: 13.5px; margin-top: 6px; }
 
   .section { padding: 48px 0; }
   .section-title { font-size: 24px; }
@@ -1084,6 +1096,15 @@ a:hover { color: var(--accent) }
   body { font-size: 14px; }
   .container { padding: 0 16px; }
   .section { padding: 36px 0; }
+  .full-banner { height: 150px; }
+  .full-banner .banner-text { width: 96%; padding: 0 10px; }
+  .full-banner .banner-text h2 { font-size: 17px; letter-spacing: .5px; }
+  .full-banner .banner-text p { font-size: 12px; }
+}
+
+@media (max-width: 360px) {
+  .full-banner .banner-text h2 { font-size: 15px; }
+  .full-banner .banner-text p { font-size: 11px; }
 }
 
 /* ============================================================
