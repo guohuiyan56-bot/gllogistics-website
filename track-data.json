@@ -2,63 +2,15 @@
   "entries": [
     {
       "code": "GSC+GREENLINE+SMART TECH PTE LIMITED",
-      "updated": "2026-07-31",
       "infoZh": "57件-CCTV CAMERA",
       "infoEn": "57PACKAGE-CCTV CAMERA",
+      "updated": "2026-07-31",
       "events": [
         {
           "date": "2026-07-31",
           "dateEn": "2026-07-31",
           "statusZh": "货物已经在南沙装柜",
           "statusEn": "Goods has been loaded at NANSHA Port",
-          "locationZh": "",
-          "locationEn": "",
-          "noteZh": "",
-          "noteEn": ""
-        }
-      ]
-    },
-    {
-      "code": "GREENLINE+DVD",
-      "infoZh": "GREENLINE+DVD 66件",
-      "infoEn": "GREENLINE+DVD 66 PACKAGE",
-      "updated": "2026-07-27",
-      "events": [
-        {
-          "date": "2026-06-28 货物已到达仓库",
-          "dateEn": "2026-06-28 Arrived at warehouse",
-          "statusZh": "",
-          "statusEn": "",
-          "locationZh": "",
-          "locationEn": "",
-          "noteZh": "",
-          "noteEn": ""
-        },
-        {
-          "date": "2026-06-30 完成装柜",
-          "dateEn": "2026-06-30 Container loaded",
-          "statusZh": "",
-          "statusEn": "",
-          "locationZh": "",
-          "locationEn": "",
-          "noteZh": "",
-          "noteEn": ""
-        },
-        {
-          "date": "2026-07-06 船舶自南沙港开航",
-          "dateEn": "2026-07-06 Vessel departed from Nansha Port",
-          "statusZh": "",
-          "statusEn": "",
-          "locationZh": "",
-          "locationEn": "",
-          "noteZh": "",
-          "noteEn": ""
-        },
-        {
-          "date": "2026-07-27 货物抵达劳托卡港",
-          "dateEn": "2026-07-27 Cargo arrived at Lautoka Port",
-          "statusZh": "",
-          "statusEn": "",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
@@ -257,6 +209,120 @@
           "dateEn": "2026-07-31",
           "statusZh": "货物已经在南沙装柜",
           "statusEn": "Goods has been loaded at NANSHA Port",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ]
+    },
+    {
+      "code": "GL2026-001",
+      "infoZh": "您的货物已于 2026-07-09 在深圳盐田港完成装柜，目前正等待安排出运至目的港。",
+      "infoEn": "Your cargo was loaded at Yantian Port, Shenzhen on 2026-07-09 and is now awaiting departure to the destination port.",
+      "updated": "2026-07-09",
+      "events": [
+        {
+          "date": "2026-07-05",
+          "dateEn": "2026-07-05",
+          "statusZh": "已揽收",
+          "statusEn": "Picked up",
+          "locationZh": "广州",
+          "locationEn": "Guangzhou",
+          "noteZh": "仓库收货",
+          "noteEn": "Received at warehouse"
+        },
+        {
+          "date": "2026-07-09",
+          "dateEn": "2026-07-09",
+          "statusZh": "已装柜",
+          "statusEn": "Container loaded",
+          "locationZh": "深圳盐田港",
+          "locationEn": "Yantian Port, Shenzhen",
+          "noteZh": "等待出运",
+          "noteEn": "Awaiting departure"
+        }
+      ]
+    },
+    {
+      "code": "GREENLINE+DVD",
+      "infoZh": "GREENLINE+DVD 66件",
+      "infoEn": "GREENLINE+DVD 66 PACKAGE",
+      "updated": "2026-07-27",
+      "events": [
+        {
+          "date": "2026-06-28 货物已到达仓库",
+          "dateEn": "2026-06-28 Arrived at warehouse",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-06-30 完成装柜",
+          "dateEn": "2026-06-30 Container loaded",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-07-06 船舶自南沙港开航",
+          "dateEn": "2026-07-06 Vessel departed from Nansha Port",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-07-27 货物抵达劳托卡港",
+          "dateEn": "2026-07-27 Cargo arrived at Lautoka Port",
+          "statusZh": "",
+          "statusEn": "",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ]
+    },
+    {
+      "code": "AXSYD-GUO-3511-A",
+      "updated": "2026-08-10",
+      "infoZh": "牙刷 8件",
+      "infoEn": "TOOTHBRUSH 8 PACKAGE",
+      "events": [
+        {
+          "date": "2026-08-10 13:38",
+          "dateEn": "2026-08-10 13:38",
+          "statusZh": "仓库已签收货物。",
+          "statusEn": "GOODS HAVE BEEN RECEIVED AT OUR WARAHOUSE",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-08-10 13:38",
+          "dateEn": "2026-08-10 13:38",
+          "statusZh": "等待装柜。",
+          "statusEn": "Waiting for loading.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-08-14",
+          "dateEn": "2026-08-14",
+          "statusZh": "货物已装柜 ",
+          "statusEn": "Goods was laded into container on 14 August 2026",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
