@@ -167,6 +167,46 @@ fetch('track-data.json?' + Date.now())
   .then(function(j){ DATA = j; })
   .catch(function(e){ console.warn('load track-data.json failed', e); });
 
+/* 货物追踪查询辅助：提单号 / 品名 / 柜号封号 / 节点文案 全部纳入检索范围 */
+/* 归一化：统一大写，把 - + / 空格 等一律当分隔符，前后补空格做「词边界」匹配，
+   这样 "26N-1" 命中 "26N-1 GREENLINE+TOP SAVE"，但不会误命中 "26N-10 ..."。 */
+function trackNorm(s){
+  return (s == null ? '' : String(s)).toUpperCase().replace(/[^0-9A-Z\u4e00-\u9fa5]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+function trackHay(e){
+  var parts = [e.code, e.infoZh, e.infoEn, e.updated];
+  (e.events || []).forEach(function(x){
+    parts.push(x.statusZh, x.statusEn, x.locationZh, x.locationEn, x.noteZh, x.noteEn, x.date, x.dateEn);
+  });
+  return ' ' + trackNorm(parts.join(' ')) + ' ';
+}
+function escAttr(s){ return esc(s).replace(/"/g, '&quot;'); }
+/* 模糊匹配到多票时（同一柜常见）：列出来让客户自己点 */
+function showMatchList(list){
+  var res = document.getElementById('result');
+  var tl  = document.getElementById('resTimeline');
+  var zh  = I18N.curLang() === 'zh';
+  document.getElementById('resCode').textContent = (zh ? '匹配到 ' : 'Matched ') + list.length + (zh ? ' 票' : ' shipment(s)');
+  document.getElementById('resInfo').textContent = (zh ? '点击下面任意一票查看详细轨迹' : 'Tap a shipment below to view its timeline');
+  document.getElementById('resUpdated').textContent = '';
+  var html = '<div class="tl-head">' + (zh ? '\ud83d\ude9a 请选择一票' : '\ud83d\ude9a Pick a shipment') + '</div><ul class="tl-list">';
+  list.forEach(function(e){
+    html += '<li class="tl-item" data-code="' + escAttr(e.code) + '" style="cursor:pointer">'
+         +  '<span class="tl-dot"></span><div class="tl-body">'
+         +  '<div class="tl-status">' + esc(e.code) + '</div>'
+         +  ((e.infoZh || e.infoEn) ? '<div class="tl-meta">' + esc(e.infoZh || e.infoEn) + '</div>' : '')
+         +  '</div></li>';
+  });
+  html += '</ul>';
+  if(tl) tl.innerHTML = html;
+  res.classList.add('show');
+  if(tl) Array.prototype.forEach.call(tl.querySelectorAll('[data-code]'), function(li){
+    li.addEventListener('click', function(){
+      document.getElementById('codeInput').value = li.getAttribute('data-code');
+      search();
+    });
+  });
+}
 function search(){
   var code = (document.getElementById('codeInput').value || '').trim().toUpperCase();
   var res = document.getElementById('result');
@@ -175,10 +215,18 @@ function search(){
   res.classList.remove('show'); nf.classList.remove('show');
   if(tl) tl.innerHTML = '';
   if(!code) return;
-  var found = null;
+  var found = null, matches = [];
   (DATA.entries||[]).forEach(function(e){
-    if((e.code||'').toUpperCase() === code) found = e;
+    if((e.code||'').toUpperCase() === code) found = e;                 // 1) 精确匹配优先
   });
+  if(!found){
+    /* 2) 模糊匹配：提单号片段 / 品名 / 柜号封号 / 节点文案 都算（词边界，避免 26N-1 撞上 26N-10） */
+    var needle = ' ' + trackNorm(code) + ' ';
+    (DATA.entries||[]).forEach(function(e){
+      if(trackHay(e).indexOf(needle) >= 0) matches.push(e);
+    });
+    if(matches.length === 1) found = matches[0];
+  }
   if(found){
     document.getElementById('resCode').textContent = found.code;
     var zh = I18N.curLang()==='zh';
@@ -190,6 +238,9 @@ function search(){
     if(events.length && tl) renderTimeline(events);
     document.getElementById('resUpdated').textContent = (I18N.curLang()==='zh'?'更新时间：':'Updated: ') + (found.updated || '—');
     res.classList.add('show');
+  } else if(matches.length > 1){
+    window.__lastTrackCode = code;                                     // 切语言时按同一关键词重查
+    showMatchList(matches);
   } else {
     nf.textContent = I18N.t('track.nf');
     nf.classList.add('show');
