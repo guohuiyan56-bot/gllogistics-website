@@ -141,8 +141,8 @@
           "noteEn": ""
         },
         {
-          "date": " 2026-09-08 ",
-          "dateEn": " 2026-09-08 ",
+          "date": "2026-09-08",
+          "dateEn": "2026-09-08",
           "statusZh": "货物已经到达劳托卡港口。",
           "statusEn": "Goods have arrived at Lautoka Port.",
           "locationZh": "",
@@ -179,8 +179,8 @@
           "noteEn": ""
         },
         {
-          "date": "2026-09-08 ",
-          "dateEn": "2026-09-08 ",
+          "date": "2026-09-08",
+          "dateEn": "2026-09-08",
           "statusZh": "货物已经到达劳托卡港口。",
           "statusEn": "Goods have arrived at Lautoka Port.",
           "locationZh": "",
@@ -220,7 +220,7 @@
           "date": "2026-09-08",
           "dateEn": "2026-09-08",
           "statusZh": "货物已经到达劳托卡港口。",
-          "statusEn": "货物已经到达劳托卡港口。",
+          "statusEn": "Goods have arrived at Lautoka Port.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
@@ -248,7 +248,7 @@
           "date": "2026-08-16",
           "dateEn": "2026-08-16",
           "statusZh": "货柜已经开船。",
-          "statusEn": "Shipment has departed from Chinaa.",
+          "statusEn": "Shipment has departed from China.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
@@ -293,8 +293,8 @@
           "noteEn": ""
         },
         {
-          "date": "2026-09-08 ",
-          "dateEn": "2026-09-08 ",
+          "date": "2026-09-08",
+          "dateEn": "2026-09-08",
           "statusZh": "货物已经到达劳托卡港口。",
           "statusEn": "Goods have arrived at Lautoka Port.",
           "locationZh": "",
@@ -387,8 +387,8 @@
           "noteEn": ""
         },
         {
-          "date": "2026-09-08 ",
-          "dateEn": "2026-09-08 ",
+          "date": "2026-09-08",
+          "dateEn": "2026-09-08",
           "statusZh": "货物已经到达劳托卡港口。",
           "statusEn": "Goods have arrived at Lautoka Port.",
           "locationZh": "",
@@ -415,8 +415,8 @@
           "noteEn": ""
         },
         {
-          "date": "2026-08-16 ",
-          "dateEn": "2026-08-16 ",
+          "date": "2026-08-16",
+          "dateEn": "2026-08-16",
           "statusZh": "货柜已经开船。",
           "statusEn": "Shipment has departed from China.",
           "locationZh": "",
