@@ -15,10 +15,19 @@
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "货物等待装柜。",
+          "statusEn": "Goods awaiting container loading.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-30 16:47",
-      "done": false
+      "createdAt": "2026-09-30 16:47"
     },
     {
       "code": "26L-1 GSC+GREENLINE+SMART TECH PTE LIMITED",
