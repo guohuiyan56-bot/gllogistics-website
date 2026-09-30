@@ -563,7 +563,7 @@
         }
       ],
       "createdAt": "2026-09-10 22:13",
-      "done": false
+      "done": true
     },
     {
       "code": "26N-2 GREENLINE+AUTO PARTS PLUS",
@@ -603,7 +603,7 @@
         }
       ],
       "createdAt": "2026-09-10 22:13",
-      "done": false
+      "done": true
     },
     {
       "code": "26N-3 GREENLINE+SHRISTIKA KISHORE",
@@ -624,15 +624,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-4 GREENLINE+HUSSAIN AUTO SPARES PTE LIMITED",
@@ -653,15 +664,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-5 GREENLINE+RONISH KUMAR",
@@ -688,9 +710,20 @@
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-6 GREENLINE+MOHAMMED IRSHAD AIYUB",
@@ -711,15 +744,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-7 GREENLINE+NORTHERN TECHNOLOGY SOLUTIONS",
@@ -740,15 +784,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-8 GREENLINE+STAR DESIGNS",
@@ -769,15 +824,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-9 GREENLINE+VISION VENTURES ENTERPRISE",
@@ -798,15 +864,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-10 GREENLINE+PRASAD SOUND AND DECORATIONS",
@@ -827,15 +904,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA:23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-11 GREENLINE+GROW GREEN ORGANIC CROP&LIVESTOCK",
@@ -856,15 +944,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-12 GREENLINE+MERELESITA KIBO",
@@ -885,15 +984,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-13 GREENLINE+EXCLUSIVE MART",
@@ -914,15 +1024,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA:23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-14 GREENLINE+AUTO HARDWARE",
@@ -949,9 +1070,20 @@
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-15 GREENLINE+VIVID MEDIA PTE LTD",
@@ -972,15 +1104,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     }
   ]
 }
