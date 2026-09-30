@@ -1,6 +1,296 @@
 {
   "entries": [
     {
+      "code": "26Q-1 GSC-GREENLINE+AUTO PARTS PLUS",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "statusEn": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-10-01 00:04"
+    },
+    {
+      "code": "26Q-2 GSC-GREENLINE+EURO PACIFIC PTE LIMITED",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "statusEn": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-10-01 00:03"
+    },
+    {
+      "code": "26Q-3 GSC-GREENLINE+A DVD ENTERTAINMENT",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "statusEn": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-10-01 00:02"
+    },
+    {
+      "code": "2Q-4 EXCLUSIVE MART",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "statusEn": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-10-01 00:01"
+    },
+    {
+      "code": "26Q-5 GSC-GREENLINE+VISION VENTURES ENTERPRISE",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "statusEn": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-10-01 00:00"
+    },
+    {
+      "code": "26Q-6 GSC-GREENLINE+UMESH FOOTWEAR AND VARIETY SHOP",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "statusEn": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-09-30 23:59"
+    },
+    {
+      "code": "26Q-7 GSC+GREENLINE+BR",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "statusEn": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-09-30 23:59"
+    },
+    {
+      "code": "26Q-8 GSC-GREENLINE+SHOP N GAIN PTE LIMITED",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "statusEn": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-09-30 23:58"
+    },
+    {
+      "code": "26Q-9 GSC-GREENLINE+SANJEET SINGH",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "statusEn": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-09-30 23:58"
+    },
+    {
+      "code": "26Q-10 GSC-GREENLINE+BOLD & BEAUTIFUL PTE LIMITED",
+      "updated": "2026-09-30",
+      "infoZh": "",
+      "infoEn": "",
+      "events": [
+        {
+          "date": "2026-09-21",
+          "dateEn": "2026-09-21",
+          "statusZh": "货物已装柜.",
+          "statusEn": "Goods loaded into container.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-30",
+          "dateEn": "2026-09-30",
+          "statusZh": "船舶已从南沙港开船，预计 10 月 17 日抵达斐济。",
+          "statusEn": "The vessel has departed from Nansha Port. ETA Fiji : 17th October.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        }
+      ],
+      "createdAt": "2026-09-30 23:57"
+    },
+    {
       "code": "26Q-11 GSC-GREENLINE+FINTECH SOLUTIONS FIJI PTE LTD",
       "updated": "2026-09-30",
       "infoZh": "",
