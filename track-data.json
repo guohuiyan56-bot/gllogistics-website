@@ -544,15 +544,26 @@
         {
           "date": "2026-08-31",
           "dateEn": "2026-08-31",
-          "statusZh": "货物已经开船 预计9月23号到达LAUTOKA港口.",
+          "statusZh": "货物已经开船 ",
           "statusEn": "Shipment has departed from China. ETA: 23th sep at Lautoka Port.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-2 GREENLINE+AUTO PARTS PLUS",
@@ -573,15 +584,26 @@
         {
           "date": "2026/8/31",
           "dateEn": "2026/8/31",
-          "statusZh": "货物已经开船，预计9月23号到达LAUTOKA港口.",
-          "statusEn": "Shipment has departed from China.ETA: 23th sep at Lautoka Port.",
+          "statusZh": "货物已经开船.",
+          "statusEn": "Shipment has departed from China.",
+          "locationZh": "",
+          "locationEn": "",
+          "noteZh": "",
+          "noteEn": ""
+        },
+        {
+          "date": "2026-09-22",
+          "dateEn": "2026-09-22",
+          "statusZh": "货物于9月22号到达LAUTOKA港口.",
+          "statusEn": "The goods arrived at Lautoka Port on 22 Sep.",
           "locationZh": "",
           "locationEn": "",
           "noteZh": "",
           "noteEn": ""
         }
       ],
-      "createdAt": "2026-09-10 22:13"
+      "createdAt": "2026-09-10 22:13",
+      "done": false
     },
     {
       "code": "26N-3 GREENLINE+SHRISTIKA KISHORE",
