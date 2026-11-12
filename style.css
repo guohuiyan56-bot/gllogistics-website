@@ -98,6 +98,12 @@ a:hover { color: var(--accent) }
   border-radius: 20px;
   border: 1px solid var(--border-subtle);
   transition: all .25s var(--ease-out);
+  user-select: none;
+  white-space: nowrap;
+}
+/* Hide until i18n.js has written the correct target-language label (no wrong flash) */
+html:not(.i18n-ready) .lang-switch {
+  visibility: hidden;
 }
 .lang-switch:hover {
   color: var(--accent);

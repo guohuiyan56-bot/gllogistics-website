@@ -103,9 +103,17 @@ var I18N = (function () {
 
   var curLang = localStorage.getItem('gl-lang') || 'en';
 
+  /* The button must always show the language you will GET after clicking,
+     never the current one:  English page -> "中文",  Chinese page -> "ENGLISH" */
   function syncSwitch() {
-    var sw = document.querySelector('.lang-switch');
-    if (sw) sw.textContent = curLang === 'zh' ? '中文' : 'English';
+    var isZh = curLang === 'zh';
+    var hint = isZh ? 'Switch to English' : '切换到中文';
+    document.querySelectorAll('.lang-switch').forEach(function (sw) {
+      sw.textContent = isZh ? 'ENGLISH' : '中文';
+      sw.setAttribute('title', hint);
+      sw.setAttribute('aria-label', hint);
+      sw.setAttribute('lang', isZh ? 'en' : 'zh-CN');
+    });
   }
 
   function setLang(lang) {
@@ -156,6 +164,8 @@ var I18N = (function () {
     });
     apply();
     syncSwitch();
+    // Reveal the language switch only after its text is correct (avoids a wrong flash)
+    document.documentElement.classList.add('i18n-ready');
   }
 
   // Auto-init when DOM ready
