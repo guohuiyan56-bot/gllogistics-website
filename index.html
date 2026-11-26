@@ -7,7 +7,7 @@
 <meta name="description" content="GREENLINE LOGISTICS — Professional international freight forwarding, ocean shipping, air freight, customs clearance, and door-to-door logistics solutions. Serving the South Pacific, Middle East & Africa.">
 <meta name="keywords" content="freight forwarding, logistics, ocean shipping, air freight, customs clearance, international shipping, cargo tracking, GREENLINE">
 <link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="stylesheet" href="style.css?v=20261112b">
+<link rel="stylesheet" href="style.css?v=20261126b">
 <script src="i18n.js?v=20261112b"></script>
 </head>
 <body>
@@ -189,7 +189,7 @@ function showMatchList(list){
   document.getElementById('resCode').textContent = (zh ? '匹配到 ' : 'Matched ') + list.length + (zh ? ' 票' : ' shipment(s)');
   document.getElementById('resInfo').textContent = (zh ? '点击下面任意一票查看详细轨迹' : 'Tap a shipment below to view its timeline');
   document.getElementById('resUpdated').textContent = '';
-  var html = '<div class="tl-head">' + (zh ? '\ud83d\ude9a 请选择一票' : '\ud83d\ude9a Pick a shipment') + '</div><ul class="tl-list">';
+  var html = '<div class="tl-head">' + (zh ? '\ud83d\ude9a 请选择一票' : '\ud83d\ude9a Pick a shipment') + '</div><ul class="tl-list tl-pick">';
   list.forEach(function(e){
     html += '<li class="tl-item" data-code="' + escAttr(e.code) + '" style="cursor:pointer">'
          +  '<span class="tl-dot"></span><div class="tl-body">'
