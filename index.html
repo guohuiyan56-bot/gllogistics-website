@@ -174,9 +174,9 @@ function trackNorm(s){
   return (s == null ? '' : String(s)).toUpperCase().replace(/[^0-9A-Z\u4e00-\u9fa5]+/g, ' ').replace(/\s+/g, ' ').trim();
 }
 function trackHay(e){
-  var parts = [e.code, e.infoZh, e.infoEn, e.updated];
+  var parts = [e.code, e.infoZh, e.infoEn];
   (e.events || []).forEach(function(x){
-    parts.push(x.statusZh, x.statusEn, x.locationZh, x.locationEn, x.noteZh, x.noteEn, x.date, x.dateEn);
+    parts.push(x.statusZh, x.statusEn, x.locationZh, x.locationEn, x.noteZh, x.noteEn);
   });
   return ' ' + trackNorm(parts.join(' ')) + ' ';
 }
@@ -236,6 +236,7 @@ function search(){
         if(hay.indexOf(' ' + q) >= 0 && !seen[e.code]){ matches.push(e); seen[e.code] = 1; }
       });
       if(matches.length === 1) found = matches[0];
+      else if(matches.length > 1) found = null;
     }
   }
   if(found){
@@ -253,6 +254,9 @@ function search(){
     window.__lastTrackCode = code;                                     // 切语言时按同一关键词重查
     showMatchList(matches);
   } else {
+    document.getElementById('resCode').textContent = '';
+    document.getElementById('resInfo').textContent = '';
+    document.getElementById('resUpdated').textContent = '';
     nf.textContent = I18N.t('track.nf');
     nf.classList.add('show');
   }
@@ -280,7 +284,7 @@ function renderTimeline(events){
     var dateShow = zh ? (ev.date||'') : (ev.dateEn || ev.date || '');
     if(dateShow) html += '<div class="tl-date">'+esc(dateShow)+'</div>';
     html += '<span class="tl-dot"></span><div class="tl-body">';
-    var statusText = status;
+    var statusText = esc(status);
     if(location) statusText += ' <span class="tl-loc">'+esc(location)+'</span>';
     if(statusText) html += '<div class="tl-status">'+statusText+'</div>';
     var meta = [];
