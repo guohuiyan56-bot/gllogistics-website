@@ -904,6 +904,9 @@ html:not(.i18n-ready) .lang-switch {
   margin-bottom: 16px; letter-spacing: .5px; text-align: left; padding-left: 4px;
 }
 .tl-list { list-style: none; position: relative; margin: 0; padding: 0; }
+/* 多票选择列表：限高可滚动，连接线对齐无日期的圆点 */
+.tl-pick { max-height: min(60vh, 520px); overflow-y: auto; padding-right: 8px; }
+.tl-pick .tl-item::before { left: 11px; }
 .tl-item { position: relative; display: flex; align-items: flex-start; gap: 12px; padding: 0 0 24px 4px; }
 .tl-item::before {
   content: ''; position: absolute; left: 111px; top: 10px; bottom: -6px;
