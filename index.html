@@ -162,10 +162,23 @@
 <script>
 /* ---- Track Data Loader ---- */
 var DATA = { entries: [] };
+var TRACK_LOAD = 'loading';                                            /* loading | ready | error */
+var trackLoadTimer = setTimeout(function(){
+  if(TRACK_LOAD === 'loading') TRACK_LOAD = 'error';                   /* 10s 未有响应即视为失败 */
+}, 10000);
 fetch('track-data.json?' + Date.now())
-  .then(function(r){ return r.json(); })
-  .then(function(j){ DATA = j; })
-  .catch(function(e){ console.warn('load track-data.json failed', e); });
+  .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(function(j){
+    clearTimeout(trackLoadTimer);
+    DATA = j;
+    TRACK_LOAD = 'ready';
+    if(window.__lastTrackCode) search();                               /* 加载慢时用户已查过 → 自动重查 */
+  })
+  .catch(function(e){
+    clearTimeout(trackLoadTimer);
+    TRACK_LOAD = 'error';
+    console.warn('load track-data.json failed', e);
+  });
 
 /* 货物追踪查询辅助：提单号 / 品名 / 柜号封号 / 节点文案 全部纳入检索范围 */
 /* 归一化：统一大写，把 - + / 空格 等一律当分隔符，前后补空格做「词边界」匹配，
@@ -215,6 +228,7 @@ function search(){
   res.classList.remove('show'); nf.classList.remove('show');
   if(tl) tl.innerHTML = '';
   if(!code) return;
+  window.__lastTrackCode = code;                                         /* 加载中/失败时也记住关键词 */
   var found = null, matches = [];
   (DATA.entries||[]).forEach(function(e){
     if((e.code||'').toUpperCase() === code) found = e;                 // 1) 精确匹配优先
@@ -232,7 +246,7 @@ function search(){
       var seen = {};
       matches.forEach(function(e){ seen[e.code] = 1; });
       (DATA.entries||[]).forEach(function(e){
-        var hay = ' ' + trackNorm((e.code||'') + ' ' + (e.infoZh||'') + ' ' + (e.infoEn||'')) + ' ';
+        var hay = trackHay(e);                                        /* 含柜号/封号 note，半截柜号也能搜 */
         if(hay.indexOf(' ' + q) >= 0 && !seen[e.code]){ matches.push(e); seen[e.code] = 1; }
       });
       if(matches.length === 1) found = matches[0];
@@ -257,7 +271,14 @@ function search(){
     document.getElementById('resCode').textContent = '';
     document.getElementById('resInfo').textContent = '';
     document.getElementById('resUpdated').textContent = '';
-    nf.textContent = I18N.t('track.nf');
+    if(TRACK_LOAD === 'loading' || TRACK_LOAD === 'error'){
+      var zhLoad = I18N.curLang() === 'zh';
+      nf.textContent = TRACK_LOAD === 'loading'
+        ? (zhLoad ? '货物数据加载中，请稍后重试' : 'Loading tracking data, please retry shortly')
+        : (zhLoad ? '货物数据加载失败，请刷新页面或联系客服' : 'Failed to load tracking data, please refresh or contact us');
+    } else {
+      nf.textContent = I18N.t('track.nf');
+    }
     nf.classList.add('show');
   }
 }
